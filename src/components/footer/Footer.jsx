@@ -59,25 +59,9 @@ const socialLinks = [
 ]
 
 import { useEffect, useRef } from 'react'
+import { NavLink } from 'react-router-dom'
 import { gsap } from '../../utils/gsap'
-
-function NakLogo({ size = 32 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
-      <defs>
-        <linearGradient id="nakGradFooter" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#60a5fa" />
-          <stop offset="100%" stopColor="#1d4ed8" />
-        </linearGradient>
-      </defs>
-      <path d="M9 34 C2 27 2 13 9 6" stroke="url(#nakGradFooter)" strokeWidth="3" strokeLinecap="round" fill="none" />
-      <line x1="14" y1="30" x2="14" y2="10" stroke="url(#nakGradFooter)" strokeWidth="3" strokeLinecap="round" />
-      <line x1="14" y1="10" x2="26" y2="30" stroke="url(#nakGradFooter)" strokeWidth="3" strokeLinecap="round" />
-      <line x1="26" y1="30" x2="26" y2="10" stroke="url(#nakGradFooter)" strokeWidth="3" strokeLinecap="round" />
-      <path d="M26 10 C30 4 38 6 36 15" stroke="url(#nakGradFooter)" strokeWidth="3" strokeLinecap="round" fill="none" />
-    </svg>
-  )
-}
+import logo from '../../assets/nakitlogo.png'
 
 export default function Footer() {
   const footerRef = useRef(null)
@@ -97,21 +81,15 @@ export default function Footer() {
   }, [])
 
   return (
-    <footer ref={footerRef} className="bg-[#0d1a3a] border-t border-white/5">
+    <footer ref={footerRef} className="bg-nak-deep border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Top section */}
         <div className="grid lg:grid-cols-5 gap-12 mb-12">
           {/* Brand + Contact */}
           <div className="footer-col lg:col-span-1">
-            <a href="#" className="flex items-center gap-3 mb-5">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1a3a7a] to-[#1d4ed8] flex items-center justify-center shadow-lg shadow-blue-700/30 border border-blue-500/20">
-                <NakLogo size={26} />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-white font-extrabold text-lg tracking-widest">NAK</span>
-                <span className="text-blue-400 text-xs font-semibold tracking-widest">IT Group</span>
-              </div>
-            </a>
+            <NavLink to="/" className="flex items-center gap-3 mb-5">
+              <img src={logo} alt="NAK IT Solutions" className="h-10 w-auto object-contain" />
+            </NavLink>
             <p className="text-gray-500 text-sm leading-relaxed mb-6">
               Leading IT consulting team empowering businesses with innovative technology solutions and digital transformation.
             </p>
@@ -121,7 +99,7 @@ export default function Footer() {
                   key={social.name}
                   href={social.href}
                   aria-label={social.name}
-                  className="w-8 h-8 rounded-lg bg-white/4 border border-white/6 flex items-center justify-center text-gray-500 hover:text-blue-400 hover:border-blue-500/30 hover:bg-blue-500/10 transition-all duration-300"
+                  className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-nak-bright hover:border-nak-bright/40 hover:bg-nak-bright/10 transition-all duration-300"
                 >
                   {social.icon}
                 </a>
@@ -138,7 +116,7 @@ export default function Footer() {
                   <li key={link}>
                     <a
                       href="#"
-                      className="text-gray-500 hover:text-gray-300 text-sm transition-colors duration-200"
+                      className="text-gray-400 hover:text-nak-bright text-sm transition-colors duration-200"
                     >
                       {link}
                     </a>
@@ -150,11 +128,11 @@ export default function Footer() {
         </div>
 
         {/* Contact Info Bar */}
-        <div className="footer-contact-bar grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 p-6 rounded-2xl bg-gradient-to-r from-blue-900/20 to-blue-800/10 border border-blue-500/15">
+        <div className="footer-contact-bar grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 p-6 rounded-2xl bg-nak-text/20 border border-nak-bright/20">
           {/* Social handle */}
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-blue-600/20 border border-blue-500/25 flex items-center justify-center flex-shrink-0">
-              <svg className="w-4 h-4 text-blue-400" fill="currentColor" viewBox="0 0 24 24">
+            <div className="w-9 h-9 rounded-lg bg-nak-bright/15 border border-nak-bright/25 flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-nak-bright" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
               </svg>
             </div>
@@ -166,14 +144,14 @@ export default function Footer() {
 
           {/* Email */}
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-blue-600/20 border border-blue-500/25 flex items-center justify-center flex-shrink-0">
-              <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-9 h-9 rounded-lg bg-nak-bright/15 border border-nak-bright/25 flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-nak-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
             <div>
               <p className="text-gray-500 text-xs">Email</p>
-              <a href="mailto:Info@nakitgroup.com" className="text-gray-200 text-sm font-medium hover:text-blue-300 transition-colors">
+              <a href="mailto:Info@nakitgroup.com" className="text-gray-200 text-sm font-medium hover:text-nak-bright transition-colors">
                 Info@nakitgroup.com
               </a>
             </div>
@@ -181,14 +159,14 @@ export default function Footer() {
 
           {/* Website */}
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-blue-600/20 border border-blue-500/25 flex items-center justify-center flex-shrink-0">
-              <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-9 h-9 rounded-lg bg-nak-bright/15 border border-nak-bright/25 flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-nak-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
               </svg>
             </div>
             <div>
               <p className="text-gray-500 text-xs">Website</p>
-              <a href="https://www.nakitgroup.com" className="text-gray-200 text-sm font-medium hover:text-blue-300 transition-colors">
+              <a href="https://www.nakitgroup.com" className="text-gray-200 text-sm font-medium hover:text-nak-bright transition-colors">
                 www.nakitgroup.com
               </a>
             </div>
@@ -196,14 +174,14 @@ export default function Footer() {
 
           {/* Phone */}
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-lg bg-blue-600/20 border border-blue-500/25 flex items-center justify-center flex-shrink-0">
-              <svg className="w-4 h-4 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-9 h-9 rounded-lg bg-nak-bright/15 border border-nak-bright/25 flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-nak-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </div>
             <div>
               <p className="text-gray-500 text-xs">Phone</p>
-              <a href="tel:+17133203582" className="text-gray-200 text-sm font-medium hover:text-blue-300 transition-colors">
+              <a href="tel:+17133203582" className="text-gray-200 text-sm font-medium hover:text-nak-bright transition-colors">
                 +1 7133203582
               </a>
             </div>
@@ -211,7 +189,7 @@ export default function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div className="p-6 rounded-2xl bg-gradient-to-r from-blue-800/15 to-blue-600/10 border border-blue-500/15 mb-10">
+        <div className="p-6 rounded-2xl bg-nak-text/15 border border-nak-bright/20 mb-10">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div>
               <h4 className="text-white font-bold mb-1">Stay up to date</h4>
@@ -221,9 +199,9 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-white placeholder-gray-600 text-sm focus:outline-none focus:border-blue-500/40 transition-all"
+                className="flex-1 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-nak-bright transition-all"
               />
-              <button className="px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 text-white text-sm font-semibold hover:from-blue-500 hover:to-blue-700 transition-all duration-300 whitespace-nowrap shadow-lg shadow-blue-700/25">
+              <button className="px-5 py-2.5 rounded-full bg-nak-deep hover:bg-nak-bright text-white text-sm font-semibold transition-all duration-300 whitespace-nowrap shadow-lg">
                 Subscribe
               </button>
             </div>
@@ -233,7 +211,7 @@ export default function Footer() {
         {/* Address + Bottom bar */}
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 pt-6 border-t border-white/5">
           <div className="flex items-center gap-2 text-gray-600 text-sm">
-            <svg className="w-4 h-4 text-blue-500/60 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4 text-nak-bright/70 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
@@ -246,7 +224,7 @@ export default function Footer() {
                 <a
                   key={link}
                   href="#"
-                  className="text-gray-600 hover:text-gray-400 text-xs transition-colors duration-200"
+                  className="text-gray-500 hover:text-nak-bright text-xs transition-colors duration-200"
                 >
                   {link}
                 </a>

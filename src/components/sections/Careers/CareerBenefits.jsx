@@ -11,7 +11,7 @@ export default function CareerBenefits() {
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-2">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-2">
               Benefits
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
@@ -28,7 +28,7 @@ export default function CareerBenefits() {
           {benefits.map((benefit) => (
             <div
               key={benefit}
-              className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 hover:border-blue-500/60 transition-colors duration-300"
+              className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 hover:border-nak-bright transition-colors duration-300"
             >
               <p className="text-xs text-slate-200 leading-relaxed">{benefit}</p>
             </div>

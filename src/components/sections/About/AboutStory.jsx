@@ -3,7 +3,7 @@ export default function AboutStory() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-4">
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-400/80">
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-bright/90">
             Our Story
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
@@ -22,7 +22,7 @@ export default function AboutStory() {
         </div>
 
         <div className="relative">
-          <div className="aspect-video rounded-3xl overflow-hidden border border-slate-800 shadow-2xl shadow-blue-900/40">
+          <div className="aspect-video rounded-3xl overflow-hidden border border-slate-800 shadow-2xl shadow-nak-deep/40">
             <img
               src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=1400&q=80"
               alt="Engineering collaboration"
@@ -30,7 +30,7 @@ export default function AboutStory() {
             />
           </div>
           <div className="absolute -bottom-6 -right-4 bg-slate-900/90 border border-slate-700 rounded-2xl px-5 py-4 flex items-center gap-3 shadow-xl shadow-slate-900/80">
-            <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-white text-sm font-semibold">
+            <div className="h-10 w-10 rounded-full bg-gradient-to-br from-nak-bright to-cyan-400 flex items-center justify-center text-white text-sm font-semibold">
               10+
             </div>
             <div>

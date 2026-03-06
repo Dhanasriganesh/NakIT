@@ -10,7 +10,7 @@ export default function SecurityAndCompliance() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-[1.2fr,1.4fr] gap-12 items-center">
         <div>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-3">
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Security & Compliance
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -32,7 +32,7 @@ export default function SecurityAndCompliance() {
           <ul className="space-y-3 text-xs text-slate-200">
             {capabilities.map((capability) => (
               <li key={capability} className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-blue-400" />
+                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-nak-bright" />
                 <span className="text-slate-300">{capability}</span>
               </li>
             ))}

@@ -51,7 +51,7 @@ const tabs = [
 ]
 
 const palette = {
-  blue:   { badge: 'bg-blue-50 border-blue-200 text-blue-700', bullet: 'bg-blue-500', stat: 'text-blue-600', card: 'bg-blue-50 border-blue-200', btn: 'from-blue-600 to-blue-800', active: 'bg-blue-600 text-white border-blue-600', shadow: 'shadow-blue-200' },
+  blue:   { badge: 'bg-nak-bright/10 border-nak-bright/30 text-nak-deep', bullet: 'bg-nak-bright', stat: 'text-nak-deep', card: 'bg-nak-bright/5 border-nak-bright/20', btn: 'bg-nak-deep hover:bg-nak-bright', active: 'bg-nak-deep text-white border-nak-deep', shadow: 'shadow-nak-deep/20' },
   cyan:   { badge: 'bg-cyan-50 border-cyan-200 text-cyan-700', bullet: 'bg-cyan-500', stat: 'text-cyan-600', card: 'bg-cyan-50 border-cyan-200', btn: 'from-cyan-600 to-cyan-800', active: 'bg-cyan-600 text-white border-cyan-600', shadow: 'shadow-cyan-200' },
   indigo: { badge: 'bg-indigo-50 border-indigo-200 text-indigo-700', bullet: 'bg-indigo-500', stat: 'text-indigo-600', card: 'bg-indigo-50 border-indigo-200', btn: 'from-indigo-600 to-indigo-800', active: 'bg-indigo-600 text-white border-indigo-600', shadow: 'shadow-indigo-200' },
   sky:    { badge: 'bg-sky-50 border-sky-200 text-sky-700', bullet: 'bg-sky-500', stat: 'text-sky-600', card: 'bg-sky-50 border-sky-200', btn: 'from-sky-600 to-sky-800', active: 'bg-sky-600 text-white border-sky-600', shadow: 'shadow-sky-200' },
@@ -104,12 +104,12 @@ export default function WhyChoose() {
       <div className="max-w-7xl mx-auto px-6 relative">
         {/* Header */}
         <div className="why-header text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-semibold uppercase tracking-widest mb-4">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-nak-bright/10 border border-nak-bright/30 text-nak-deep text-xs font-semibold uppercase tracking-widest mb-4">
             Why NAK IT Group
           </div>
           <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight">
             Why Choose{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">NAK IT Group</span>
+            <span className="bg-gradient-to-r from-nak-deep to-cyan-500 bg-clip-text text-transparent">NAK IT Group</span>
           </h2>
         </div>
 

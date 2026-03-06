@@ -51,9 +51,9 @@ export default function Brands() {
           {doubled.map((brand, i) => (
             <div
               key={i}
-              className="flex-shrink-0 flex flex-col items-center justify-center gap-2 px-8 py-5 rounded-2xl bg-white border border-slate-200 hover:border-blue-300 hover:shadow-md hover:shadow-blue-100 transition-all duration-300 group cursor-default hover:-translate-y-1"
+              className="flex-shrink-0 flex flex-col items-center justify-center gap-2 px-8 py-5 rounded-2xl bg-white border border-slate-200 hover:border-nak-bright hover:shadow-md hover:shadow-nak-bright/20 transition-all duration-300 group cursor-default hover:-translate-y-1"
             >
-              <div className="text-slate-300 group-hover:text-blue-500 transition-colors duration-300 group-hover:scale-110 transform">{brand.logo}</div>
+              <div className="text-slate-300 group-hover:text-nak-bright transition-colors duration-300 group-hover:scale-110 transform">{brand.logo}</div>
               <span className="text-slate-400 group-hover:text-slate-700 text-xs font-semibold tracking-wider transition-colors duration-300">{brand.name}</span>
             </div>
           ))}

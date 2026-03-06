@@ -27,7 +27,7 @@ export default function AboutValues() {
       <div className="max-w-7xl mx-auto px-6 py-20 border-y border-slate-200/70">
         <div className="grid lg:grid-cols-[1.1fr,1.4fr] gap-12 items-start">
           <div>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-3">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
               Our Principles
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -43,9 +43,9 @@ export default function AboutValues() {
             {values.map((value) => (
               <div
                 key={value.title}
-                className="group rounded-2xl border border-slate-800 bg-slate-900/70 p-5 hover:border-blue-500/60 hover:bg-slate-900 transition-colors duration-300"
+                className="group rounded-2xl border border-slate-800 bg-slate-900/70 p-5 hover:border-nak-bright hover:bg-slate-900 transition-colors duration-300"
               >
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 mb-3 opacity-80 group-hover:opacity-100" />
+                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-nak-bright to-cyan-400 mb-3 opacity-80 group-hover:opacity-100" />
                 <h3 className="text-sm font-semibold text-white mb-1.5">{value.title}</h3>
                 <p className="text-xs text-slate-400 leading-relaxed">{value.description}</p>
               </div>

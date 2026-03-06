@@ -21,7 +21,7 @@ export default function CareerProcess() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-10 items-center">
         <div>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-3">
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Hiring Process
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -39,7 +39,7 @@ export default function CareerProcess() {
               key={step.label}
               className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 flex flex-col gap-2"
             >
-              <span className="text-xs font-semibold text-blue-300">{step.label}</span>
+              <span className="text-xs font-semibold text-nak-bright">{step.label}</span>
               <p className="text-sm font-semibold text-white">{step.title}</p>
               <p className="text-xs text-slate-400 leading-relaxed">{step.description}</p>
             </div>

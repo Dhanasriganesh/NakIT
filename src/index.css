@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+/* ── NAK IT logo theme (#2EAFE6 bright, #1A498E deep, #24446B text, #335078 muted) ─ */
+@theme {
+  --color-nak-bright: #2eafe6;
+  --color-nak-deep: #1a498e;
+  --color-nak-text: #24446b;
+  --color-nak-muted: #335078;
+}
+
 /* ── Animations ────────────────────────────────────────────────── */
 @keyframes marquee {
   0%   { transform: translateX(0); }
@@ -55,7 +63,7 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #f1f5f9; }
 ::-webkit-scrollbar-thumb { background: #bfdbfe; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #2563eb; }
+::-webkit-scrollbar-thumb:hover { background: #1a498e; }
 
 /* ── Selection ──────────────────────────────────────────────────── */
-::selection { background: rgba(37, 99, 235, 0.18); color: #1e3a8a; }
+::selection { background: rgba(46, 175, 230, 0.2); color: #1a498e; }

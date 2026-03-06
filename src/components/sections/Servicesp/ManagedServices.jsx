@@ -21,7 +21,7 @@ export default function ManagedServices() {
     <section className="bg-white border-y border-slate-200/70">
       <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-[1.3fr,1.1fr] gap-12 items-center">
         <div>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-3">
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Managed Services
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -41,7 +41,7 @@ export default function ManagedServices() {
           {items.map((item) => (
             <div
               key={item.title}
-              className="rounded-2xl border border-slate-800 bg-slate-950/70 px-4 py-3 hover:border-blue-500/60 transition-colors duration-300"
+              className="rounded-2xl border border-slate-800 bg-slate-950/70 px-4 py-3 hover:border-nak-bright transition-colors duration-300"
             >
               <p className="text-sm font-semibold text-white mb-1">{item.title}</p>
               <p className="text-xs text-slate-400 leading-relaxed">{item.description}</p>

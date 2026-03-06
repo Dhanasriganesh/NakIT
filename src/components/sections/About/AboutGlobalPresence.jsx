@@ -21,7 +21,7 @@ export default function AboutGlobalPresence() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-[1.4fr,1.2fr] gap-12 items-center">
         <div>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-3">
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Global Delivery
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -33,15 +33,15 @@ export default function AboutGlobalPresence() {
           </p>
           <div className="grid sm:grid-cols-3 gap-4 text-xs text-slate-300">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-3">
-              <p className="text-2xl font-extrabold text-blue-400 mb-1">3</p>
+              <p className="text-2xl font-extrabold text-nak-bright mb-1">3</p>
               <p className="text-slate-400">Continents</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-3">
-              <p className="text-2xl font-extrabold text-blue-400 mb-1">10+</p>
+              <p className="text-2xl font-extrabold text-nak-bright mb-1">10+</p>
               <p className="text-slate-400">Delivery hubs</p>
             </div>
             <div className="rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-3">
-              <p className="text-2xl font-extrabold text-blue-400 mb-1">24/7</p>
+              <p className="text-2xl font-extrabold text-nak-bright mb-1">24/7</p>
               <p className="text-slate-400">Support coverage</p>
             </div>
           </div>
@@ -58,10 +58,10 @@ export default function AboutGlobalPresence() {
             {regions.map((region) => (
               <div
                 key={region.name}
-                className="rounded-2xl border border-slate-800 bg-slate-950/60 px-4 py-3 hover:border-blue-500/60 transition-colors duration-300"
+                className="rounded-2xl border border-slate-800 bg-slate-950/60 px-4 py-3 hover:border-nak-bright transition-colors duration-300"
               >
                 <p className="text-sm font-semibold text-white">{region.name}</p>
-                <p className="text-xs text-blue-300 mt-0.5">{region.hubs}</p>
+                <p className="text-xs text-nak-bright mt-0.5">{region.hubs}</p>
                 <p className="text-xs text-slate-400 mt-1.5">{region.focus}</p>
               </div>
             ))}

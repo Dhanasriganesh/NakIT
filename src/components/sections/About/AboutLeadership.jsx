@@ -25,7 +25,7 @@ export default function AboutLeadership() {
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90">
               Leadership
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">
@@ -42,7 +42,7 @@ export default function AboutLeadership() {
           {leaders.map((leader) => (
             <article
               key={leader.name}
-              className="group rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900/70 to-slate-950/90 overflow-hidden hover:border-blue-500/60 hover:-translate-y-1.5 transition-all duration-300"
+              className="group rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900/70 to-slate-950/90 overflow-hidden hover:border-nak-bright hover:-translate-y-1.5 transition-all duration-300"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
@@ -54,7 +54,7 @@ export default function AboutLeadership() {
               </div>
               <div className="p-5">
                 <p className="text-sm font-semibold text-white">{leader.name}</p>
-                <p className="text-xs text-blue-300 mt-1">{leader.role}</p>
+                <p className="text-xs text-nak-bright mt-1">{leader.role}</p>
                 <p className="text-xs text-slate-400 mt-3 leading-relaxed">
                   Advisor to CIOs and digital leaders on cloud strategy, operating models, and high‑performing
                   engineering cultures.

@@ -15,11 +15,14 @@ function ScrollToTop() {
 }
 
 export default function Layout() {
+  const { pathname } = useLocation()
+  const isHome = pathname === '/'
+
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <ScrollToTop />
       <Header />
-      <main className="pt-24 md:pt-28">
+      <main className={isHome ? '' : 'pt-24 md:pt-28'}>
         <Routers />
       </main>
       <Footer />

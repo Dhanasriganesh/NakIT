@@ -2,7 +2,7 @@ export default function IndustriesInnovation() {
   return (
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-10 items-center">
-        <div className="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl shadow-blue-900/40">
+        <div className="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl shadow-nak-deep/40">
           <img
             src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=1400&q=80"
             alt="Innovation lab"
@@ -10,7 +10,7 @@ export default function IndustriesInnovation() {
           />
         </div>
         <div>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-3">
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Innovation
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">

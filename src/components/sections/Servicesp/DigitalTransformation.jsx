@@ -21,7 +21,7 @@ export default function DigitalTransformation() {
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-2">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-2">
               Digital Transformation
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
@@ -38,7 +38,7 @@ export default function DigitalTransformation() {
           {initiatives.map((item) => (
             <article
               key={item.title}
-              className="group rounded-3xl border border-slate-800 overflow-hidden bg-slate-950/80 hover:border-blue-500/60 transition-colors duration-300"
+              className="group rounded-3xl border border-slate-800 overflow-hidden bg-slate-950/80 hover:border-nak-bright transition-colors duration-300"
             >
               <div className="relative aspect-[16/9] overflow-hidden">
                 <img

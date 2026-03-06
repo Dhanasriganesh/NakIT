@@ -21,7 +21,7 @@ export default function CloudAndInfrastructure() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-[1.2fr,1.4fr] gap-12 items-center">
         <div>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-3">
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Cloud & Infrastructure
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -41,7 +41,7 @@ export default function CloudAndInfrastructure() {
           {pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 px-5 py-4 hover:border-blue-500/60 hover:bg-slate-900 transition-colors duration-300"
+              className="rounded-2xl border border-slate-800 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 px-5 py-4 hover:border-nak-bright hover:bg-slate-900 transition-colors duration-300"
             >
               <p className="text-sm font-semibold text-white mb-1.5">{pillar.title}</p>
               <p className="text-xs text-slate-400 leading-relaxed">{pillar.description}</p>

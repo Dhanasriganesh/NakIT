@@ -37,7 +37,7 @@ export default function IndustriesGrid() {
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-2">
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-2">
               Verticals
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900">
@@ -54,11 +54,11 @@ export default function IndustriesGrid() {
           {industries.map((industry) => (
             <article
               key={industry.name}
-              className="group rounded-2xl border border-slate-800 bg-slate-950/80 p-5 hover:border-blue-500/60 hover:-translate-y-1.5 transition-all duration-300"
+              className="group rounded-2xl border border-slate-800 bg-slate-950/80 p-5 hover:border-nak-bright hover:-translate-y-1.5 transition-all duration-300"
             >
               <div className="flex items-center justify-between gap-4 mb-3">
                 <p className="text-sm font-semibold text-white">{industry.name}</p>
-                <span className="h-7 w-7 rounded-full bg-gradient-to-br from-blue-500 to-cyan-400 opacity-80 group-hover:opacity-100" />
+                <span className="h-7 w-7 rounded-full bg-gradient-to-br from-nak-bright to-cyan-400 opacity-80 group-hover:opacity-100" />
               </div>
               <p className="text-xs text-slate-400 leading-relaxed">{industry.summary}</p>
             </article>

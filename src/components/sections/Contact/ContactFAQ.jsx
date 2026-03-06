@@ -22,7 +22,7 @@ export default function ContactFAQ() {
       <div className="max-w-7xl mx-auto px-6 py-20">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
           <div className="max-w-sm">
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-3">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
               FAQs
             </p>
             <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -37,7 +37,7 @@ export default function ContactFAQ() {
             {faqs.map((faq) => (
               <div
                 key={faq.question}
-                className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 hover:border-blue-500/60 transition-colors duration-300"
+                className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 hover:border-nak-bright transition-colors duration-300"
               >
                 <p className="text-xs font-semibold text-white mb-1.5">{faq.question}</p>
                 <p className="text-xs text-slate-400 leading-relaxed">{faq.answer}</p>

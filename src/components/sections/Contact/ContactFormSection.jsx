@@ -3,7 +3,7 @@ export default function ContactFormSection() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-[1.1fr,1.2fr] gap-10 items-start">
         <div>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-3">
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Start a Conversation
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -24,7 +24,7 @@ export default function ContactFormSection() {
               <label className="block text-xs text-slate-300 mb-1">Full name</label>
               <input
                 type="text"
-                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-nak-bright"
                 placeholder="Your name"
               />
             </div>
@@ -32,7 +32,7 @@ export default function ContactFormSection() {
               <label className="block text-xs text-slate-300 mb-1">Work email</label>
               <input
                 type="email"
-                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-nak-bright"
                 placeholder="you@company.com"
               />
             </div>
@@ -42,7 +42,7 @@ export default function ContactFormSection() {
               <label className="block text-xs text-slate-300 mb-1">Company</label>
               <input
                 type="text"
-                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-nak-bright"
                 placeholder="Company name"
               />
             </div>
@@ -50,7 +50,7 @@ export default function ContactFormSection() {
               <label className="block text-xs text-slate-300 mb-1">Role</label>
               <input
                 type="text"
-                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-nak-bright"
                 placeholder="e.g. CIO, VP Engineering"
               />
             </div>
@@ -59,13 +59,13 @@ export default function ContactFormSection() {
             <label className="block text-xs text-slate-300 mb-1">How can we help?</label>
             <textarea
               rows={4}
-              className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-blue-500 resize-none"
+              className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-nak-bright resize-none"
               placeholder="Briefly describe your initiatives, timelines, and any context that will help us prepare."
             />
           </div>
           <button
             type="button"
-            className="w-full md:w-auto px-6 py-2.5 rounded-full bg-blue-600 hover:bg-blue-500 text-xs font-semibold text-white shadow-lg shadow-blue-700/40 transition-colors"
+            className="w-full md:w-auto px-6 py-2.5 rounded-full bg-nak-deep hover:bg-nak-bright text-xs font-semibold text-white shadow-lg shadow-nak-deep/40 transition-colors"
           >
             Submit inquiry
           </button>

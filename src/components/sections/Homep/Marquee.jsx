@@ -38,9 +38,9 @@ export default function Marquee() {
           {doubled.map((industry, i) => (
             <span
               key={i}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-600 text-sm font-medium hover:text-blue-600 hover:border-blue-300 hover:bg-blue-50 transition-colors duration-300 cursor-default"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-slate-50 border border-slate-200 text-slate-600 text-sm font-medium hover:text-nak-deep hover:border-nak-bright hover:bg-nak-bright/10 transition-colors duration-300 cursor-default"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+              <span className="w-1.5 h-1.5 rounded-full bg-nak-bright" />
               {industry}
             </span>
           ))}

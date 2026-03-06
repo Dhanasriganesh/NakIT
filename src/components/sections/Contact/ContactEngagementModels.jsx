@@ -21,7 +21,7 @@ export default function ContactEngagementModels() {
     <section className="bg-white">
       <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-2 gap-10 items-center">
         <div>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-blue-700/80 mb-3">
+          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Engagement Models
           </p>
           <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
@@ -37,7 +37,7 @@ export default function ContactEngagementModels() {
           {models.map((model) => (
             <div
               key={model.title}
-              className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 hover:border-blue-500/60 transition-colors duration-300"
+              className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 hover:border-nak-bright transition-colors duration-300"
             >
               <p className="text-sm font-semibold text-white mb-1.5">{model.title}</p>
               <p className="text-xs text-slate-400 leading-relaxed">{model.description}</p>
