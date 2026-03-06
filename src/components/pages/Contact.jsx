@@ -1,11 +1,18 @@
-import React from 'react'
+import ContactHero from '../sections/ContactHero'
+import ContactFormSection from '../sections/ContactFormSection'
+import ContactOffices from '../sections/ContactOffices'
+import ContactEngagementModels from '../sections/ContactEngagementModels'
+import ContactFAQ from '../sections/ContactFAQ'
 
-function Contact() {
+export default function Contact() {
   return (
-    <div>
-      
-    </div>
+    <>
+      <ContactHero />
+      <ContactFormSection />
+      <ContactOffices />
+      <ContactEngagementModels />
+      <ContactFAQ />
+    </>
   )
 }
 
-export default Contact

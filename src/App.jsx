@@ -1,12 +1,9 @@
 import React from 'react'
-import Routers from './components/routers/Routers'
-import CustomCursor from './components/ui/CustomCursor'
-
+import Layout from './components/layout/Layout'
 function App() {
   return (
     <>
-      <CustomCursor />
-      <Routers />
+    <Layout />
     </>
   )
 }

@@ -1,14 +1,22 @@
 import React from 'react'
-import Home from '../pages/Home'
-import Layout from '../layout/Layout'
 import { Routes, Route } from 'react-router-dom'
+
+import Home from '../pages/Home'
+import About from '../pages/About'
+import Services from '../pages/Services'
+import Industries from '../pages/Industries'
+import Career from '../pages/Career'
+import Contact from '../pages/Contact'
 
 function Routers() {
   return (
     <Routes>
-      <Route element={<Layout />}>
-        <Route path='/' element={<Home />} />
-      </Route>
+      <Route path="/" element={<Home />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/industries" element={<Industries />} />
+      <Route path="/career" element={<Career />} />
+      <Route path="/contact" element={<Contact />} />
     </Routes>
   )
 }

@@ -18,14 +18,24 @@
 .animate-marquee-slow { animation: marquee-slow 40s linear infinite; display: flex; gap: 2rem; }
 .animate-fade-in-up   { animation: fade-in-up 0.6s ease-out forwards; }
 
-/* ── Smooth scroll ─────────────────────────────────────────────── */
-html { scroll-behavior: smooth; }
+/* ── Base typography ───────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  font-family: 'Playfair Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
 
-/* ── Custom cursor (desktop only) ──────────────────────────────── */
+body {
+  font-family: inherit;
+}
+
+/* ── Custom cursor (desktop only, opt‑in via body.custom-cursor) ─ */
 @media (pointer: fine) {
-  *,
-  *::before,
-  *::after { cursor: none !important; }
+  body.custom-cursor,
+  body.custom-cursor *,
+  body.custom-cursor *::before,
+  body.custom-cursor *::after {
+    cursor: none !important;
+  }
 }
 
 /* ── 3D card transforms ─────────────────────────────────────────── */

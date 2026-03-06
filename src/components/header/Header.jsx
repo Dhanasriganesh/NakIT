@@ -1,12 +1,14 @@
 import { useState, useEffect, useRef } from 'react'
+import { NavLink } from 'react-router-dom'
 import { gsap } from '../../utils/gsap'
 
 const navLinks = [
-  { label: 'Services', href: '#services' },
-  { label: 'About', href: '#about-company' },
-  { label: 'Why Us', href: '#why-us' },
-  { label: 'Industries', href: '#services' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Industries', to: '/industries' },
+  { label: 'Career', to: '/career' },
+  { label: 'Contact', to: '/contact' },
 ]
 
 function NakLogo({ size = 32 }) {
@@ -59,7 +61,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="header-logo flex items-center gap-3 group">
+        <NavLink to="/" className="header-logo flex items-center gap-3 group">
           <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center shadow-sm border border-blue-200 transition-transform duration-300 group-hover:scale-105">
             <NakLogo size={26} />
           </div>
@@ -67,18 +69,22 @@ export default function Header() {
             <span className="text-slate-900 font-extrabold text-lg tracking-widest">NAK</span>
             <span className="text-blue-600 text-xs font-semibold tracking-widest">IT Group</span>
           </div>
-        </a>
+        </NavLink>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <a
+            <NavLink
               key={link.label}
-              href={link.href}
-              className="header-nav-link text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
+              to={link.to}
+              className={({ isActive }) =>
+                `header-nav-link text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full ${
+                  isActive ? 'text-blue-600' : 'text-slate-500 hover:text-blue-600'
+                }`
+              }
             >
               {link.label}
-            </a>
+            </NavLink>
           ))}
         </nav>
 
@@ -108,22 +114,22 @@ export default function Header() {
         <div className="md:hidden bg-white border-t border-slate-200 px-6 py-4 shadow-lg">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
-              <a
+              <NavLink
                 key={link.label}
-                href={link.href}
+                to={link.to}
                 className="text-slate-600 hover:text-blue-600 text-sm font-medium transition-colors"
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
-              </a>
+              </NavLink>
             ))}
-            <a
-              href="#contact"
+            <NavLink
+              to="/contact"
               className="mt-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 text-white text-sm font-semibold text-center"
               onClick={() => setMenuOpen(false)}
             >
               Get Started
-            </a>
+            </NavLink>
           </nav>
         </div>
       )}
