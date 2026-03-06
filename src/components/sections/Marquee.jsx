@@ -1,3 +1,6 @@
+import { useEffect, useRef } from 'react'
+import { gsap } from '../../utils/gsap'
+
 const industries = [
   'Financial Services',
   'Healthcare',
@@ -11,10 +14,21 @@ const industries = [
 ]
 
 export default function Marquee() {
+  const sectionRef = useRef(null)
   const doubled = [...industries, ...industries]
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(sectionRef.current, {
+        opacity: 0, duration: 0.8, ease: 'power2.out',
+        scrollTrigger: { trigger: sectionRef.current, start: 'top 90%' },
+      })
+    }, sectionRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <section className="bg-white py-10 overflow-hidden border-y border-slate-100">
+    <section ref={sectionRef} className="bg-white py-10 overflow-hidden border-y border-slate-100">
       <div className="relative flex">
         {/* Fade edges */}
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />

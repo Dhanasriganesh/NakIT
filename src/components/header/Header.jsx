@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import { gsap } from '../../utils/gsap'
 
 const navLinks = [
   { label: 'Services', href: '#services' },
@@ -17,23 +18,11 @@ function NakLogo({ size = 32 }) {
           <stop offset="100%" stopColor="#1d4ed8" />
         </linearGradient>
       </defs>
-      <path
-        d="M9 34 C2 27 2 13 9 6"
-        stroke="url(#nakGradHeader)"
-        strokeWidth="3"
-        strokeLinecap="round"
-        fill="none"
-      />
+      <path d="M9 34 C2 27 2 13 9 6" stroke="url(#nakGradHeader)" strokeWidth="3" strokeLinecap="round" fill="none" />
       <line x1="14" y1="30" x2="14" y2="10" stroke="url(#nakGradHeader)" strokeWidth="3" strokeLinecap="round" />
       <line x1="14" y1="10" x2="26" y2="30" stroke="url(#nakGradHeader)" strokeWidth="3" strokeLinecap="round" />
       <line x1="26" y1="30" x2="26" y2="10" stroke="url(#nakGradHeader)" strokeWidth="3" strokeLinecap="round" />
-      <path
-        d="M26 10 C30 4 38 6 36 15"
-        stroke="url(#nakGradHeader)"
-        strokeWidth="3"
-        strokeLinecap="round"
-        fill="none"
-      />
+      <path d="M26 10 C30 4 38 6 36 15" stroke="url(#nakGradHeader)" strokeWidth="3" strokeLinecap="round" fill="none" />
     </svg>
   )
 }
@@ -41,6 +30,7 @@ function NakLogo({ size = 32 }) {
 export default function Header() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const headerRef = useRef(null)
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20)
@@ -48,8 +38,19 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } })
+      tl.from('.header-logo', { y: -30, opacity: 0, duration: 0.7 })
+        .from('.header-nav-link', { y: -20, opacity: 0, duration: 0.5, stagger: 0.08 }, '-=0.4')
+        .from('.header-cta', { y: -20, opacity: 0, duration: 0.5, stagger: 0.1 }, '-=0.3')
+    }, headerRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
     <header
+      ref={headerRef}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm shadow-slate-200/60'
@@ -58,8 +59,8 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-3 group">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center shadow-sm border border-blue-200">
+        <a href="#" className="header-logo flex items-center gap-3 group">
+          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center shadow-sm border border-blue-200 transition-transform duration-300 group-hover:scale-105">
             <NakLogo size={26} />
           </div>
           <div className="flex flex-col leading-none">
@@ -74,7 +75,7 @@ export default function Header() {
             <a
               key={link.label}
               href={link.href}
-              className="text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors duration-200"
+              className="header-nav-link text-slate-500 hover:text-blue-600 text-sm font-medium transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-blue-500 after:transition-all after:duration-300 hover:after:w-full"
             >
               {link.label}
             </a>
@@ -82,24 +83,11 @@ export default function Header() {
         </nav>
 
         {/* CTA */}
-        {/* <div className="hidden md:flex items-center gap-3">
-          <a
-            href="#contact"
-            className="text-sm text-slate-500 hover:text-slate-800 transition-colors duration-200 font-medium"
-          >
-            Log in
-          </a>
-          <a
-            href="#contact"
-            className="px-5 py-2 rounded-full bg-gradient-to-r from-blue-600 to-blue-800 text-white text-sm font-semibold hover:from-blue-500 hover:to-blue-700 transition-all duration-300 shadow-md shadow-blue-200 hover:shadow-blue-300"
-          >
-            Get Started
-          </a>
-        </div> */}
+       
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-slate-600 hover:text-slate-900"
+          className="md:hidden text-slate-600 hover:text-slate-900 transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >

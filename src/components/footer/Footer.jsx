@@ -58,6 +58,9 @@ const socialLinks = [
   },
 ]
 
+import { useEffect, useRef } from 'react'
+import { gsap } from '../../utils/gsap'
+
 function NakLogo({ size = 32 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 40 40" fill="none">
@@ -77,13 +80,29 @@ function NakLogo({ size = 32 }) {
 }
 
 export default function Footer() {
+  const footerRef = useRef(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo('.footer-col',
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out', scrollTrigger: { trigger: footerRef.current, start: 'top 92%', once: true } }
+      )
+      gsap.fromTo('.footer-contact-bar',
+        { y: 20, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.footer-contact-bar', start: 'top 95%', once: true } }
+      )
+    }, footerRef)
+    return () => ctx.revert()
+  }, [])
+
   return (
-    <footer className="bg-[#0d1a3a] border-t border-white/5">
+    <footer ref={footerRef} className="bg-[#0d1a3a] border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 py-16">
         {/* Top section */}
         <div className="grid lg:grid-cols-5 gap-12 mb-12">
           {/* Brand + Contact */}
-          <div className="lg:col-span-1">
+          <div className="footer-col lg:col-span-1">
             <a href="#" className="flex items-center gap-3 mb-5">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#1a3a7a] to-[#1d4ed8] flex items-center justify-center shadow-lg shadow-blue-700/30 border border-blue-500/20">
                 <NakLogo size={26} />
@@ -112,7 +131,7 @@ export default function Footer() {
 
           {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
-            <div key={category}>
+            <div key={category} className="footer-col">
               <h4 className="text-white font-semibold text-sm mb-4">{category}</h4>
               <ul className="space-y-2.5">
                 {links.map((link) => (
@@ -131,7 +150,7 @@ export default function Footer() {
         </div>
 
         {/* Contact Info Bar */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 p-6 rounded-2xl bg-gradient-to-r from-blue-900/20 to-blue-800/10 border border-blue-500/15">
+        <div className="footer-contact-bar grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-10 p-6 rounded-2xl bg-gradient-to-r from-blue-900/20 to-blue-800/10 border border-blue-500/15">
           {/* Social handle */}
           <div className="flex items-center gap-3">
             <div className="w-9 h-9 rounded-lg bg-blue-600/20 border border-blue-500/25 flex items-center justify-center flex-shrink-0">

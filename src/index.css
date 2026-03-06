@@ -1,68 +1,51 @@
 @import "tailwindcss";
 
-/* Custom animations */
+/* ── Animations ────────────────────────────────────────────────── */
 @keyframes marquee {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
 @keyframes marquee-slow {
-  0% { transform: translateX(0); }
+  0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
-
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
-
 @keyframes fade-in-up {
-  0% { opacity: 0; transform: translateY(20px); }
+  0%   { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-.animate-marquee {
-  animation: marquee 25s linear infinite;
-  display: flex;
-  gap: 1.5rem;
+.animate-marquee      { animation: marquee 25s linear infinite; display: flex; gap: 1.5rem; }
+.animate-marquee-slow { animation: marquee-slow 40s linear infinite; display: flex; gap: 2rem; }
+.animate-fade-in-up   { animation: fade-in-up 0.6s ease-out forwards; }
+
+/* ── Smooth scroll ─────────────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+/* ── Custom cursor (desktop only) ──────────────────────────────── */
+@media (pointer: fine) {
+  *,
+  *::before,
+  *::after { cursor: none !important; }
 }
 
-.animate-marquee-slow {
-  animation: marquee-slow 40s linear infinite;
-  display: flex;
-  gap: 2rem;
+/* ── 3D card transforms ─────────────────────────────────────────── */
+.service-card,
+.testimonial-card {
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
-.animate-float {
-  animation: float 4s ease-in-out infinite;
+/* ── Magnetic button ────────────────────────────────────────────── */
+.magnetic-btn {
+  will-change: transform;
+  display: inline-flex;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out forwards;
-}
+/* ── Custom scrollbar ───────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #f1f5f9; }
+::-webkit-scrollbar-thumb { background: #bfdbfe; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #2563eb; }
 
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Custom scrollbar - light theme */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #f1f5f9;
-}
-::-webkit-scrollbar-thumb {
-  background: #bfdbfe;
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: #2563eb;
-}
-
-/* Selection */
-::selection {
-  background: rgba(37, 99, 235, 0.2);
-  color: #1e3a8a;
-}
+/* ── Selection ──────────────────────────────────────────────────── */
+::selection { background: rgba(37, 99, 235, 0.18); color: #1e3a8a; }

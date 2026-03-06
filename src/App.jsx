@@ -1,8 +1,14 @@
 import React from 'react'
 import Routers from './components/routers/Routers'
+import CustomCursor from './components/ui/CustomCursor'
 
 function App() {
-  return <Routers />
+  return (
+    <>
+      <CustomCursor />
+      <Routers />
+    </>
+  )
 }
 
 export default App
