@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { gsap } from '../../utils/gsap'
+import { gsap } from '../../../utils/gsap'
 
 const industries = [
   'Financial Services',

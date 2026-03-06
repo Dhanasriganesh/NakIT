@@ -1,8 +1,8 @@
-import ServicesHero from '../sections/ServicesHero'
-import CloudAndInfrastructure from '../sections/CloudAndInfrastructure'
-import DigitalTransformation from '../sections/DigitalTransformation'
-import ManagedServices from '../sections/ManagedServices'
-import SecurityAndCompliance from '../sections/SecurityAndCompliance'
+import ServicesHero from '../sections/Servicesp/ServicesHero'
+import CloudAndInfrastructure from '../sections/Servicesp/CloudAndInfrastructure'
+import DigitalTransformation from '../sections/Servicesp/DigitalTransformation'
+import ManagedServices from '../sections/Servicesp/ManagedServices'
+import SecurityAndCompliance from '../sections/Servicesp/SecurityAndCompliance'
 
 export default function Services() {
   return (

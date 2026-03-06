@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { gsap, ScrollTrigger } from '../../utils/gsap'
+import { gsap, ScrollTrigger } from '../../../utils/gsap'
 
 const stats = [
   { value: 150, suffix: '+', label: 'Enterprise Clients' },

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { gsap, ScrollTrigger } from '../../utils/gsap'
-import MagneticButton from '../ui/MagneticButton'
+import { gsap, ScrollTrigger } from '../../../utils/gsap'
+import MagneticButton from '../../ui/MagneticButton'
 
 export default function Hero() {
   const heroRef = useRef(null)

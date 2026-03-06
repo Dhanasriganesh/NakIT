@@ -1,8 +1,8 @@
-import CareerHero from '../sections/CareerHero'
-import CareerCulture from '../sections/CareerCulture'
-import CareerBenefits from '../sections/CareerBenefits'
-import CareerOpenRoles from '../sections/CareerOpenRoles'
-import CareerProcess from '../sections/CareerProcess'
+import CareerHero from '../sections/Careers/CareerHero'
+import CareerCulture from '../sections/Careers/CareerCulture'
+import CareerBenefits from '../sections/Careers/CareerBenefits'
+import CareerOpenRoles from '../sections/Careers/CareerOpenRoles'
+import CareerProcess from '../sections/Careers/CareerProcess'
 
 export default function Career() {
   return (

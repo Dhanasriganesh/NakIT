@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { gsap } from '../../utils/gsap'
+import { gsap } from '../../../utils/gsap'
 
 const testimonials = [
   { quote: 'Working with NAK IT Group has been a game-changer for our organization. Their strategic approach to digital transformation and commitment to excellence is unmatched in the industry.', author: 'Sarah Mitchell', role: 'CTO, Capital One', avatar: 'SM', accent: 'from-blue-500 to-blue-700' },

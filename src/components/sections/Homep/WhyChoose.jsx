@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
-import { gsap } from '../../utils/gsap'
-import MagneticButton from '../ui/MagneticButton'
+import { gsap } from '../../../utils/gsap'
+import MagneticButton from '../../ui/MagneticButton'
 
 const tabs = [
   {

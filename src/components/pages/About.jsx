@@ -1,8 +1,8 @@
-import AboutHero from '../sections/AboutHero'
-import AboutStory from '../sections/AboutStory'
-import AboutLeadership from '../sections/AboutLeadership'
-import AboutValues from '../sections/AboutValues'
-import AboutGlobalPresence from '../sections/AboutGlobalPresence'
+import AboutHero from '../sections/About/AboutHero'
+import AboutStory from '../sections/About/AboutStory'
+import AboutLeadership from '../sections/About/AboutLeadership'
+import AboutValues from '../sections/About/AboutValues'
+import AboutGlobalPresence from '../sections/About/AboutGlobalPresence'
 
 export default function About() {
   return (

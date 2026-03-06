@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import { gsap, ScrollTrigger } from '../../utils/gsap'
+import { gsap, ScrollTrigger } from '../../../utils/gsap'
 
 const brands = [
   {
