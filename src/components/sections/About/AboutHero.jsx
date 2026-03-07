@@ -1,15 +1,16 @@
+const HERO_IMG = 'https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80'
+
 export default function AboutHero() {
   return (
-    <section className="relative overflow-hidden ">
-      <div className="absolute inset-0 bg-black/20">
-        <img
-          src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80"
-          alt="Consulting team"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-6 py-28 md:py-32 lg:py-40">
+    <section className="relative min-h-[42vh] overflow-hidden">
+      {/* Sticky background: image stays fixed while content scrolls */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed"
+        style={{ backgroundImage: `url(${HERO_IMG})` }}
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-black/45" aria-hidden />
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-4 py-10 md:py-14">
         <p className="text-xs font-semibold tracking-[0.35em] uppercase text-nak-bright/90 mb-4">
           About NAK IT Group
         </p>

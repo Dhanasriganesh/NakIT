@@ -6,6 +6,9 @@
   --color-nak-deep: #1a498e;
   --color-nak-text: #24446b;
   --color-nak-muted: #335078;
+  /* Body text: clean sans-serif; headings: Playfair Display */
+  --font-family-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-family-serif: 'Playfair Display', ui-serif, Georgia, serif;
 }
 
 /* ── Animations ────────────────────────────────────────────────── */
@@ -26,14 +29,51 @@
 .animate-marquee-slow { animation: marquee-slow 40s linear infinite; display: flex; gap: 2rem; }
 .animate-fade-in-up   { animation: fade-in-up 0.6s ease-out forwards; }
 
+/* ── Footer moving background shapes ─────────────────────────────── */
+@keyframes footer-float-1 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.12; }
+  33%      { transform: translate(30px, -20px) scale(1.05); opacity: 0.18; }
+  66%      { transform: translate(-20px, 15px) scale(0.95); opacity: 0.1; }
+}
+@keyframes footer-float-2 {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.1; }
+  50%      { transform: translate(-40px, -30px) scale(1.1); opacity: 0.16; }
+}
+@keyframes footer-float-3 {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0.08; }
+  50%      { transform: translate(25px, 25px) rotate(180deg); opacity: 0.14; }
+}
+@keyframes footer-pulse {
+  0%, 100% { opacity: 0.06; transform: scale(1); }
+  50%      { opacity: 0.12; transform: scale(1.2); }
+}
+.footer-shape-1 { animation: footer-float-1 18s ease-in-out infinite; }
+.footer-shape-2 { animation: footer-float-2 22s ease-in-out infinite; }
+.footer-shape-3 { animation: footer-float-3 25s ease-in-out infinite; }
+.footer-shape-pulse { animation: footer-pulse 12s ease-in-out infinite; }
+
+/* ── Header curtain: smooth slide down/up ───────────────────────── */
+.header-curtain {
+  transform: translateY(0);
+  transition: transform 0.55s cubic-bezier(0.32, 0.72, 0, 1),
+    box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
+  will-change: transform;
+}
+.header-curtain.header-curtain--hidden {
+  transform: translateY(-100%);
+}
+
 /* ── Base typography ───────────────────────────────────────────── */
 html {
   scroll-behavior: smooth;
-  font-family: 'Playfair Display', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 body {
-  font-family: inherit;
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', ui-serif, Georgia, serif;
 }
 
 /* ── Custom cursor (desktop only, opt‑in via body.custom-cursor) ─ */

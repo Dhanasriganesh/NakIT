@@ -39,7 +39,7 @@ export default function Brands() {
 
   return (
     <section ref={sectionRef} className="bg-slate-50 py-16 overflow-hidden border-b border-slate-100">
-      <div className="brands-header max-w-7xl mx-auto px-6 mb-10 text-center">
+      <div className="brands-header max-w-screen-2xl mx-auto px-4 mb-10 text-center">
         <p className="text-slate-400 text-sm uppercase tracking-widest font-semibold mb-2">Trusted Worldwide</p>
         <h2 className="text-2xl md:text-3xl font-bold text-slate-900">We Worked With Global Largest Brands</h2>
       </div>

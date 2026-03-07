@@ -19,7 +19,7 @@ const faqs = [
 export default function ContactFAQ() {
   return (
     <section className="bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className="max-w-screen-2xl mx-auto px-4 py-20">
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
           <div className="max-w-sm">
             <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">

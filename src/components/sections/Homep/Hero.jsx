@@ -28,8 +28,9 @@ export default function Hero() {
         playsInline
         aria-hidden
       />
-      {/* Subtle overlay for contrast (optional) */}
-      <div className="hero-video-overlay absolute top-24 md:top-28 left-0 right-0 bottom-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none" />
+      {/* Light black overlay; gradient for bottom contrast */}
+      <div className="hero-video-overlay absolute top-24 md:top-28 left-0 right-0 bottom-0 bg-black/40 pointer-events-none" />
+      <div className="absolute top-24 md:top-28 left-0 right-0 bottom-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
 
       {/* Scroll cue */}
       <div className="hero-scroll-indicator absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">

@@ -1,77 +1,207 @@
+const CONTACT = {
+  email: 'Info@nakitgroup.com',
+  phone: '+1 7133203582',
+  address: '6650 Rivers Ave STE 100, Charleston, South Carolina 29406',
+  addressForMap: '6650+Rivers+Ave+STE+100,+Charleston,+South+Carolina+29406',
+}
+
+const SUBJECT_OPTIONS = [
+  'Select a subject',
+  'General inquiry',
+  'Cloud & Infrastructure',
+  'Digital Transformation',
+  'Cybersecurity',
+  'Careers',
+  'Partnership',
+  'Other',
+]
+
 export default function ContactFormSection() {
   return (
-    <section className="bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-[1.1fr,1.2fr] gap-10 items-start">
-        <div>
-          <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
-            Start a Conversation
-          </p>
-          <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4">
-            Tell us about your IT consulting needs.
-          </h2>
-          <p className="text-slate-700 text-sm md:text-base leading-relaxed mb-4">
-            Whether you&apos;re exploring a cloud migration, modernizing a core platform, or looking for a
-            long‑term consulting partner, we&apos;ll respond within two business days.
-          </p>
-          <p className="text-slate-600 text-xs md:text-sm leading-relaxed">
-            No heavy sales motion—just a focused discussion with our senior consultants and architects.
-          </p>
-        </div>
+    <section className="bg-slate-100 py-16 md:py-20">
+      <div className="max-w-screen-2xl mx-auto px-4 grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+        {/* Left: Get in Touch + Map */}
+        <div className="space-y-6">
+          <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/60 p-8">
+            <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 font-serif">
+              Get in Touch
+            </h2>
 
-        <form className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6 space-y-4">
-          <div className="grid md:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-xs text-slate-300 mb-1">Full name</label>
-              <input
-                type="text"
-                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-nak-bright"
-                placeholder="Your name"
+            <div className="space-y-6">
+              {/* Email */}
+              <div className="flex gap-4">
+                <div className="w-10 h-10 rounded-xl bg-nak-bright/10 border border-nak-bright/30 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-nak-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-slate-900 font-semibold text-sm mb-0.5">Email</p>
+                  <p className="text-slate-600 text-sm mb-1">{CONTACT.email}</p>
+                  <a
+                    href={`mailto:${CONTACT.email}`}
+                    className="text-sm text-nak-deep font-medium underline underline-offset-2 hover:text-nak-bright transition-colors"
+                  >
+                    Send us an email
+                  </a>
+                </div>
+              </div>
+
+              {/* Phone */}
+              <div className="flex gap-4">
+                <div className="w-10 h-10 rounded-xl bg-nak-bright/10 border border-nak-bright/30 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-nak-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-slate-900 font-semibold text-sm mb-0.5">Phone</p>
+                  <p className="text-slate-600 text-sm mb-1">{CONTACT.phone}</p>
+                  <a
+                    href={`tel:${CONTACT.phone.replace(/\s/g, '')}`}
+                    className="text-sm text-nak-deep font-medium underline underline-offset-2 hover:text-nak-bright transition-colors"
+                  >
+                    Call us now
+                  </a>
+                </div>
+              </div>
+
+              {/* Address */}
+              <div className="flex gap-4">
+                <div className="w-10 h-10 rounded-xl bg-nak-bright/10 border border-nak-bright/30 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-nak-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <p className="text-slate-900 font-semibold text-sm mb-0.5">Address</p>
+                  <p className="text-slate-600 text-sm whitespace-pre-line">{CONTACT.address}</p>
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.address)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block mt-1 text-sm text-nak-deep font-medium underline underline-offset-2 hover:text-nak-bright transition-colors"
+                  >
+                    View on map
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Map overview */}
+          <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/60 overflow-hidden">
+            <div className="aspect-[4/3] w-full">
+              <iframe
+                title="NAK IT Solutions office location"
+                src={`https://www.google.com/maps?q=${CONTACT.addressForMap}&hl=en&z=15&output=embed`}
+                className="w-full h-full border-0"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
+          </div>
+
+          {/* Follow Us */}
+          <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/60 p-8">
+            <h3 className="text-xl font-bold text-slate-900 mb-4 font-serif">Follow Us</h3>
+            <div className="flex gap-3">
+              {['Twitter', 'LinkedIn', 'GitHub', 'YouTube'].map((name) => (
+                <a
+                  key={name}
+                  href="#"
+                  aria-label={name}
+                  className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-nak-bright/10 hover:border-nak-bright/30 hover:text-nak-deep transition-all"
+                >
+                  <span className="text-xs font-semibold">{name[0]}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Right: Send us a Message form */}
+        <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/60 p-8">
+          <h2 className="text-xl md:text-2xl font-bold text-slate-900 mb-6 font-serif">
+            Send us a Message
+          </h2>
+
+          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
             <div>
-              <label className="block text-xs text-slate-300 mb-1">Work email</label>
+              <label className="block text-slate-900 font-medium text-sm mb-1.5">
+                Full Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                required
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright transition-colors"
+                placeholder="Your full name"
+              />
+            </div>
+
+            <div>
+              <label className="block text-slate-900 font-medium text-sm mb-1.5">
+                Email Address <span className="text-red-500">*</span>
+              </label>
               <input
                 type="email"
-                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-nak-bright"
+                required
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright transition-colors"
                 placeholder="you@company.com"
               />
             </div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-4">
+
             <div>
-              <label className="block text-xs text-slate-300 mb-1">Company</label>
+              <label className="block text-slate-900 font-medium text-sm mb-1.5">Phone Number</label>
               <input
-                type="text"
-                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-nak-bright"
-                placeholder="Company name"
+                type="tel"
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright transition-colors"
+                placeholder="+1 234 567 8900"
               />
             </div>
+
             <div>
-              <label className="block text-xs text-slate-300 mb-1">Role</label>
-              <input
-                type="text"
-                className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-nak-bright"
-                placeholder="e.g. CIO, VP Engineering"
+              <label className="block text-slate-900 font-medium text-sm mb-1.5">
+                Subject <span className="text-red-500">*</span>
+              </label>
+              <select
+                required
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-slate-900 text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright transition-colors appearance-none bg-[url('data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20fill%3D%22none%22%20viewBox%3D%220%200%2024%2024%22%20stroke%3D%22%2364748b%22%3E%3Cpath%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%20stroke-width%3D%222%22%20d%3D%22M19%209l-7%207-7-7%22%2F%3E%3C%2Fsvg%3E')] bg-[length:1.25rem] bg-[right_0.5rem_center] bg-no-repeat pr-10"
+              >
+                {SUBJECT_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt === 'Select a subject' ? '' : opt}>
+                    {opt}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label className="block text-slate-900 font-medium text-sm mb-1.5">
+                Message <span className="text-red-500">*</span>
+              </label>
+              <textarea
+                required
+                rows={4}
+                className="w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-slate-900 placeholder-slate-400 text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright transition-colors resize-none"
+                placeholder="Tell us how we can help you..."
               />
             </div>
-          </div>
-          <div>
-            <label className="block text-xs text-slate-300 mb-1">How can we help?</label>
-            <textarea
-              rows={4}
-              className="w-full rounded-xl bg-slate-950 border border-slate-700 px-3 py-2 text-xs text-slate-100 placeholder-slate-500 focus:outline-none focus:border-nak-bright resize-none"
-              placeholder="Briefly describe your initiatives, timelines, and any context that will help us prepare."
-            />
-          </div>
-          <button
-            type="button"
-            className="w-full md:w-auto px-6 py-2.5 rounded-full bg-nak-deep hover:bg-nak-bright text-xs font-semibold text-white shadow-lg shadow-nak-deep/40 transition-colors"
-          >
-            Submit inquiry
-          </button>
-        </form>
+
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-nak-deep hover:bg-nak-bright text-white text-sm font-semibold shadow-lg shadow-nak-deep/30 hover:shadow-nak-bright/30 transition-all duration-300"
+            >
+              <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+              </svg>
+              Send Message
+            </button>
+          </form>
+        </div>
       </div>
     </section>
   )
 }
-

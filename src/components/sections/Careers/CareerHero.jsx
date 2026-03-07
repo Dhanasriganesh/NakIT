@@ -1,16 +1,16 @@
+const HERO_IMG = 'https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=1600&q=80'
+
 export default function CareerHero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-nak-deep via-nak-text to-nak-deep">
-      <div className="absolute inset-0 opacity-40">
-        <img
-          src="https://images.unsplash.com/photo-1556761175-129418cb2dfe?auto=format&fit=crop&w=1600&q=80"
-          alt="Team collaboration"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-tr from-nak-deep via-nak-deep/80 to-transparent" />
-      </div>
+    <section className="relative min-h-[42vh] overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed"
+        style={{ backgroundImage: `url(${HERO_IMG})` }}
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-black/45" aria-hidden />
 
-      <div className="relative max-w-7xl mx-auto px-6 py-24 md:py-32">
+      <div className="relative z-10 max-w-screen-2xl mx-auto px-4 py-16 md:py-20">
         <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-bright/90 mb-3">
           Careers
         </p>

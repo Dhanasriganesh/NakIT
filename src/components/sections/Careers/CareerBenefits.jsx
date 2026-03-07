@@ -8,7 +8,7 @@ const benefits = [
 export default function CareerBenefits() {
   return (
     <section className="bg-white border-y border-slate-200/70">
-      <div className="max-w-7xl mx-auto px-6 py-20">
+      <div className="max-w-screen-2xl mx-auto px-4 py-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
             <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-2">

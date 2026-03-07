@@ -74,7 +74,7 @@ export default function About() {
     <section ref={sectionRef} className="bg-white py-24 relative overflow-hidden" id="about-company">
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 rounded-full bg-nak-bright/20 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6">
+      <div className="max-w-screen-2xl mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <div className="about-left">

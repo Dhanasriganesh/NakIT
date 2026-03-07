@@ -67,7 +67,7 @@ export default function Testimonials() {
     <section ref={sectionRef} className="bg-slate-50 py-24 relative overflow-hidden">
       <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-nak-bright/20 blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-6 relative">
+      <div className="max-w-screen-2xl mx-auto px-4 relative">
         {/* Header */}
         <div className="testimonials-header text-center mb-16 overflow-hidden">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-nak-bright/10 border border-nak-bright/30 text-nak-deep text-xs font-semibold uppercase tracking-widest mb-4">

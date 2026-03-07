@@ -8,7 +8,7 @@ const capabilities = [
 export default function SecurityAndCompliance() {
   return (
     <section className="bg-white">
-      <div className="max-w-7xl mx-auto px-6 py-20 grid lg:grid-cols-[1.2fr,1.4fr] gap-12 items-center">
+      <div className="max-w-screen-2xl mx-auto px-4 py-20 grid lg:grid-cols-[1.2fr,1.4fr] gap-12 items-center">
         <div>
           <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Security & Compliance
