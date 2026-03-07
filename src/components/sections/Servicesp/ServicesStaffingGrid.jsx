@@ -168,7 +168,7 @@ const services = [
 export default function ServicesStaffingGrid() {
   return (
     <section className="bg-slate-50 border-t border-slate-200/70">
-      <div className="max-w-screen-2xl mx-auto px-4 py-16 md:py-20">
+      <div className="container-app py-16 md:py-20">
         <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
           <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Global IT Staffing Expertise

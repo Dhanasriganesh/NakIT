@@ -19,7 +19,7 @@ const SUBJECT_OPTIONS = [
 export default function ContactFormSection() {
   return (
     <section className="bg-slate-100 py-16 md:py-20">
-      <div className="max-w-screen-2xl mx-auto px-4 grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+      <div className="container-app grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
         {/* Left: Get in Touch + Map */}
         <div className="space-y-6">
           <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/60 p-8">
@@ -92,7 +92,7 @@ export default function ContactFormSection() {
 
           {/* Map overview */}
           <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/60 overflow-hidden">
-            <div className="aspect-[4/3] w-full">
+            <div className="aspect-[4/3] w-full max-h-[200px] md:max-h-[260px] overflow-hidden rounded-b-2xl">
               <iframe
                 title="NAK IT Solutions office location"
                 src={`https://www.google.com/maps?q=${CONTACT.addressForMap}&hl=en&z=15&output=embed`}
@@ -104,22 +104,7 @@ export default function ContactFormSection() {
             </div>
           </div>
 
-          {/* Follow Us */}
-          <div className="bg-white rounded-2xl shadow-lg shadow-slate-200/60 p-8">
-            <h3 className="text-xl font-bold text-slate-900 mb-4 font-serif">Follow Us</h3>
-            <div className="flex gap-3">
-              {['Twitter', 'LinkedIn', 'GitHub', 'YouTube'].map((name) => (
-                <a
-                  key={name}
-                  href="#"
-                  aria-label={name}
-                  className="w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 hover:bg-nak-bright/10 hover:border-nak-bright/30 hover:text-nak-deep transition-all"
-                >
-                  <span className="text-xs font-semibold">{name[0]}</span>
-                </a>
-              ))}
-            </div>
-          </div>
+     
         </div>
 
         {/* Right: Send us a Message form */}

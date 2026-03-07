@@ -2,7 +2,7 @@ const HERO_IMG = 'https://images.unsplash.com/photo-1525182008055-f88b95ff7980?a
 
 export default function ContactHero() {
   return (
-    <section className="relative min-h-[42vh] overflow-hidden">
+    <section className="relative min-h-[42vh] overflow-hidden py-16">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat bg-scroll md:bg-fixed"
         style={{ backgroundImage: `url(${HERO_IMG})` }}
@@ -10,7 +10,7 @@ export default function ContactHero() {
       />
       <div className="absolute inset-0 bg-black/45" aria-hidden />
 
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-4 py-10 md:py-14">
+      <div className="relative z-10 container-app py-10 md:py-14">
         <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-bright/90 mb-3">
           Contact
         </p>

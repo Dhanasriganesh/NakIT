@@ -22,7 +22,7 @@ const leaders = [
 export default function AboutLeadership() {
   return (
     <section className="bg-white">
-      <div className="max-w-screen-2xl mx-auto px-4 py-20">
+      <div className="container-app py-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
             <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90">

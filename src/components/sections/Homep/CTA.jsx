@@ -39,7 +39,7 @@ export default function CTA() {
       <div className="cta-blob-1 absolute top-1/3 left-1/4 w-[500px] h-[400px] rounded-full bg-nak-bright/10 blur-[100px] pointer-events-none" />
       <div className="cta-blob-2 absolute bottom-0 right-1/4 w-[300px] h-[300px] rounded-full bg-white/5 blur-[80px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 relative text-center">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 relative text-center">
         <div className="cta-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-nak-bright animate-pulse" />
           Get Started Today

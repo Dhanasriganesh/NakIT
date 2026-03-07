@@ -1,7 +1,7 @@
 export default function IndustriesInnovation() {
   return (
     <section className="bg-white">
-      <div className="max-w-screen-2xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-10 items-center">
+      <div className="container-app py-20 grid lg:grid-cols-2 gap-10 items-center">
         <div className="rounded-3xl overflow-hidden border border-slate-800 shadow-2xl shadow-nak-deep/40">
           <img
             src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=1400&q=80"

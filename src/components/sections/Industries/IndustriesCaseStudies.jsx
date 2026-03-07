@@ -14,7 +14,7 @@ const cases = [
 export default function IndustriesCaseStudies() {
   return (
     <section className="bg-white border-y border-slate-200/70">
-      <div className="max-w-screen-2xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-10 items-start">
+      <div className="container-app py-20 grid lg:grid-cols-2 gap-10 items-start">
         <div>
           <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Case Studies

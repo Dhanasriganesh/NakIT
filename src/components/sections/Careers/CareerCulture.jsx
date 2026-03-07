@@ -7,8 +7,8 @@ const points = [
 
 export default function CareerCulture() {
   return (
-    <section className="bg-white">
-      <div className="max-w-screen-2xl mx-auto px-4 py-20 grid lg:grid-cols-[1.2fr,1.4fr] gap-10 items-center">
+    <section className="bg-slate-50 border-t border-slate-200/70">
+      <div className="container-app py-20 grid lg:grid-cols-[1.2fr,1.4fr] gap-10 items-center">
         <div>
           <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Culture
@@ -22,11 +22,11 @@ export default function CareerCulture() {
           </p>
         </div>
 
-        <div className="rounded-3xl border border-slate-800 bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 p-6">
-          <ul className="space-y-3 text-xs text-slate-200">
+        <div className="rounded-2xl border border-white/60 bg-white/70 backdrop-blur-xl shadow-lg shadow-slate-200/40 p-6 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-1 hover:scale-[1.01] hover:shadow-[0_24px_48px_-12px_rgba(26,73,142,0.12)] hover:border-nak-bright/40 hover:bg-white/85 hover:ring-2 hover:ring-nak-bright/10">
+          <ul className="space-y-3 text-sm text-slate-700">
             {points.map((point) => (
               <li key={point} className="flex items-start gap-2">
-                <span className="mt-1 h-1.5 w-1.5 rounded-full bg-nak-bright" />
+                <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-nak-bright flex-shrink-0" />
                 <span>{point}</span>
               </li>
             ))}

@@ -65,7 +65,7 @@ export default function Header() {
           : 'bg-white/80 backdrop-blur-sm border-b border-slate-100'
       }`}
     >
-      <div className="max-w-screen-2xl mx-auto px-4 py-2 flex items-center justify-between">
+      <div className="container-app py-2 flex items-center justify-between">
         {/* Logo */}
         <NavLink to="/" className="header-logo flex items-center gap-3 group">
           <img src={logo} alt="NAK IT Solutions" className="h-18 w-28 object-contain transition-transform duration-300 group-hover:scale-105" />
@@ -113,7 +113,7 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-slate-200 px-4 py-4 shadow-lg">
+        <div className="md:hidden bg-white border-t border-slate-200 container-app py-4 shadow-lg">
           <nav className="flex flex-col gap-4">
             {navLinks.map((link) => (
               <NavLink

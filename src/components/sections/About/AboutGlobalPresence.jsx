@@ -19,7 +19,7 @@ const regions = [
 export default function AboutGlobalPresence() {
   return (
     <section className="bg-white">
-      <div className="max-w-screen-2xl mx-auto px-4 py-20 grid lg:grid-cols-[1.4fr,1.2fr] gap-12 items-center">
+      <div className="container-app py-20 grid lg:grid-cols-[1.4fr,1.2fr] gap-12 items-center">
         <div>
           <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-3">
             Global Delivery

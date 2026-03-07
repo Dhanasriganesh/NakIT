@@ -7,8 +7,8 @@ const benefits = [
 
 export default function CareerBenefits() {
   return (
-    <section className="bg-white border-y border-slate-200/70">
-      <div className="max-w-screen-2xl mx-auto px-4 py-20">
+    <section className="bg-slate-50 border-t border-slate-200/70">
+      <div className="container-app py-20">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
           <div>
             <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90 mb-2">
@@ -28,9 +28,9 @@ export default function CareerBenefits() {
           {benefits.map((benefit) => (
             <div
               key={benefit}
-              className="rounded-2xl border border-slate-800 bg-slate-950/80 p-4 hover:border-nak-bright transition-colors duration-300"
+              className="rounded-2xl border border-white/60 bg-white/70 backdrop-blur-xl shadow-lg shadow-slate-200/40 p-5 transition-all duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:-translate-y-2 hover:scale-[1.02] hover:shadow-[0_24px_48px_-12px_rgba(26,73,142,0.15)] hover:border-nak-bright/50 hover:bg-white/85 hover:ring-2 hover:ring-nak-bright/20"
             >
-              <p className="text-xs text-slate-200 leading-relaxed">{benefit}</p>
+              <p className="text-sm text-slate-700 leading-relaxed">{benefit}</p>
             </div>
           ))}
         </div>

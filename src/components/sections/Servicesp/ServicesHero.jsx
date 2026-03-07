@@ -10,7 +10,7 @@ export default function ServicesHero() {
       />
       <div className="absolute inset-0 bg-black/45" aria-hidden />
 
-      <div className="relative z-10 max-w-screen-2xl mx-auto px-4 py-10 md:py-14">
+      <div className="relative z-10 container-app py-10 md:py-14">
         <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-bright/90 mb-3">
           Services
         </p>

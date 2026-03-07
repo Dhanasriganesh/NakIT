@@ -91,7 +91,7 @@ export default function Footer() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-slate-950/40" />
       </div>
 
-      <div className="relative max-w-screen-2xl mx-auto px-4 py-16">
+      <div className="relative container-app py-16">
         {/* Top section */}
         <div className="grid lg:grid-cols-5 gap-12 mb-12">
           {/* Brand + Contact */}

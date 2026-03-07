@@ -1,7 +1,7 @@
 export default function AboutStory() {
   return (
     <section className="bg-white">
-      <div className="max-w-screen-2xl mx-auto px-4 py-20 grid lg:grid-cols-2 gap-12 items-center">
+      <div className="container-app py-20 grid lg:grid-cols-2 gap-12 items-center">
         <div className="space-y-4">
           <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-bright/90">
             Our Story

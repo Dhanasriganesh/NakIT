@@ -101,7 +101,7 @@ export default function WhyChoose() {
     <section ref={sectionRef} className="bg-white py-24 relative overflow-hidden" id="why-us">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(37,99,235,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(37,99,235,0.03)_1px,transparent_1px)] bg-[size:80px_80px]" />
 
-      <div className="max-w-screen-2xl mx-auto px-4 relative">
+      <div className="container-app relative">
         {/* Header */}
         <div className="why-header text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-nak-bright/10 border border-nak-bright/30 text-nak-deep text-xs font-semibold uppercase tracking-widest mb-4">

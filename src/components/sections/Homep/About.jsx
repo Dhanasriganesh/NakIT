@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from '../../../utils/gsap'
+import homeAboutImage from '../../../assets/nakit-images/home-about.png'
 
 const stats = [
   { value: 150, suffix: '+', label: 'Enterprise Clients' },
@@ -60,6 +61,11 @@ export default function About() {
         })
       })
 
+      // Image from right
+      gsap.fromTo('.about-image-wrap',
+        { x: 40, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.about-image-wrap', start: 'top 88%', once: true } }
+      )
       // Accent card
       gsap.fromTo('.about-accent-card',
         { y: 30, opacity: 0 },
@@ -74,7 +80,7 @@ export default function About() {
     <section ref={sectionRef} className="bg-white py-24 relative overflow-hidden" id="about-company">
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 rounded-full bg-nak-bright/20 blur-[120px] pointer-events-none" />
 
-      <div className="max-w-screen-2xl mx-auto px-4">
+      <div className="container-app">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <div className="about-left">
@@ -111,6 +117,13 @@ export default function About() {
 
           {/* Right */}
           <div className="about-right grid grid-cols-1 gap-6">
+            <div className="about-image-wrap rounded-2xl overflow-hidden border border-slate-200 shadow-lg shadow-slate-200/50 aspect-[4/3] max-h-[280px] md:max-h-[320px]">
+              <img
+                src={homeAboutImage}
+                alt="NAK IT team collaboration"
+                className="w-full h-full object-cover"
+              />
+            </div>
             {stats.map((stat) => (
               <div
                 key={stat.label}
