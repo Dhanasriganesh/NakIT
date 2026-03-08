@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { gsap, ScrollTrigger } from '../../../utils/gsap'
+
 import homeAboutImage from '../../../assets/nakit-images/home-about.png'
 
 const stats = [
@@ -9,43 +10,56 @@ const stats = [
 ]
 
 const capabilities = [
-  'Cloud Migration', 'Digital Transformation', 'Cybersecurity Solutions',
-  'DevOps Services', 'Data Analytics', 'AI Integration',
+  'Cloud Migration',
+  'Digital Transformation',
+  'Cybersecurity Solutions',
+  'DevOps Services',
+  'Data Analytics',
+  'AI Integration',
 ]
 
 export default function About() {
+
   const sectionRef = useRef(null)
 
   useEffect(() => {
+
     const ctx = gsap.context(() => {
-      // Badge + heading
+
       gsap.fromTo('.about-badge',
         { y: 20, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out', scrollTrigger: { trigger: '.about-badge', start: 'top 88%', once: true } }
+        { y: 0, opacity: 1, duration: 0.6, ease: 'power3.out',
+          scrollTrigger: { trigger: '.about-badge', start: 'top 88%', once: true }
+        }
       )
 
-      // Left content slides from left
       gsap.fromTo('.about-left',
         { x: -60, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.9, ease: 'power3.out', scrollTrigger: { trigger: '.about-left', start: 'top 88%', once: true } }
+        { x: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: '.about-left', start: 'top 88%', once: true }
+        }
       )
 
-      // Capability tags stagger
       gsap.fromTo('.about-tag',
         { scale: 0.85, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.4, stagger: 0.06, ease: 'back.out(1.5)', scrollTrigger: { trigger: '.about-tags', start: 'top 88%', once: true } }
+        { scale: 1, opacity: 1, duration: 0.4, stagger: 0.06, ease: 'back.out(1.5)',
+          scrollTrigger: { trigger: '.about-tags', start: 'top 88%', once: true }
+        }
       )
 
-      // Stats slide from right
       gsap.fromTo('.about-stat-card',
         { x: 60, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'power3.out', scrollTrigger: { trigger: '.about-right', start: 'top 88%', once: true } }
+        { x: 0, opacity: 1, duration: 0.7, stagger: 0.15, ease: 'power3.out',
+          scrollTrigger: { trigger: '.about-right', start: 'top 88%', once: true }
+        }
       )
 
-      // Number counters
       document.querySelectorAll('.stat-number').forEach((el) => {
+
         const target = parseInt(el.getAttribute('data-target'), 10)
+
         const obj = { val: 0 }
+
         ScrollTrigger.create({
           trigger: el,
           start: 'top 85%',
@@ -54,112 +68,200 @@ export default function About() {
               val: target,
               duration: 2,
               ease: 'power2.out',
-              onUpdate: () => { el.textContent = Math.round(obj.val) },
+              onUpdate: () => {
+                el.textContent = Math.round(obj.val)
+              }
             })
           },
-          once: true,
+          once: true
         })
+
       })
 
-      // Image from right
-      gsap.fromTo('.about-image-wrap',
-        { x: 40, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.8, ease: 'power3.out', scrollTrigger: { trigger: '.about-image-wrap', start: 'top 88%', once: true } }
+      gsap.fromTo('.about-image',
+        { scale: 1.1, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.9, ease: 'power3.out',
+          scrollTrigger: { trigger: '.about-image', start: 'top 88%', once: true }
+        }
       )
-      // Accent card
+
       gsap.fromTo('.about-accent-card',
         { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out', scrollTrigger: { trigger: '.about-accent-card', start: 'top 88%', once: true } }
+        { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out',
+          scrollTrigger: { trigger: '.about-accent-card', start: 'top 88%', once: true }
+        }
       )
+
     }, sectionRef)
 
     return () => ctx.revert()
+
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-white py-24 relative overflow-hidden" id="about-company">
+
+    <section
+      ref={sectionRef}
+      className="bg-white py-24 relative overflow-hidden"
+      id="about-company"
+    >
+
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-96 h-96 rounded-full bg-nak-bright/20 blur-[120px] pointer-events-none" />
 
       <div className="container-app">
+
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left */}
+
+          {/* LEFT */}
+
           <div className="about-left">
+
             <div className="about-badge inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-nak-bright/10 border border-nak-bright/30 text-nak-deep text-xs font-semibold uppercase tracking-widest mb-6">
               About Company
             </div>
+
             <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900 leading-tight tracking-tight mb-6">
-              Empowering businesses with{' '}
+              Empowering businesses with
               <span className="bg-gradient-to-r from-nak-deep to-cyan-500 bg-clip-text text-transparent">
-                innovative technology
+                {' '}innovative technology
               </span>
             </h2>
+
             <p className="text-slate-500 text-lg leading-relaxed mb-8">
               We're a leading IT consulting team focused on empowering businesses with innovative
-              technology solutions and digital transformation strategies. We believe in technology
-              that transforms — fast, scalable, and reliable.
+              technology solutions and digital transformation strategies.
             </p>
+
             <p className="text-slate-400 leading-relaxed mb-10">
-              Our goal is to give organizations the tools to achieve digital excellence without
-              wasting time or budget. From cloud migrations to AI integrations, we handle it all
-              with precision and expertise.
+              From cloud migrations to AI integrations, we help organizations
+              achieve digital excellence faster and smarter.
             </p>
+
             <div className="about-tags flex flex-wrap gap-2">
+
               {capabilities.map((cap) => (
+
                 <span
                   key={cap}
                   className="about-tag px-4 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-sm font-medium hover:bg-nak-bright/10 hover:border-nak-bright hover:text-nak-deep transition-all duration-300 cursor-default hover:-translate-y-0.5"
                 >
                   {cap}
                 </span>
+
               ))}
+
             </div>
+
           </div>
 
-          {/* Right */}
-          <div className="about-right grid grid-cols-1 gap-6">
-            <div className="about-image-wrap rounded-2xl overflow-hidden border border-slate-200 shadow-lg shadow-slate-200/50 aspect-[4/3] max-h-[280px] md:max-h-[320px]">
+
+          {/* RIGHT */}
+
+          <div className="about-right relative">
+
+            {/* IMAGE CARD */}
+
+            <div className="about-image relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200">
+
               <img
                 src={homeAboutImage}
-                alt="NAK IT team collaboration"
-                className="w-full h-full object-cover"
+                alt="About NAK IT Group"
+                className="w-full h-[420px] object-cover"
               />
-            </div>
-            {stats.map((stat) => (
-              <div
-                key={stat.label}
-                className="about-stat-card flex items-center gap-6 p-6 rounded-2xl bg-slate-50 border border-slate-200 hover:border-nak-bright hover:bg-nak-bright/10 hover:shadow-md hover:shadow-nak-bright/20 transition-all duration-300 group"
-              >
-                <div className="text-5xl font-extrabold bg-gradient-to-r from-nak-deep to-nak-bright bg-clip-text text-transparent min-w-[110px] tabular-nums">
-                  <span className="stat-number" data-target={stat.value}>0</span>
-                  <span>{stat.suffix}</span>
-                </div>
-                <div>
-                  <div className="text-slate-800 font-semibold text-lg">{stat.label}</div>
-                  <div className="w-12 h-0.5 bg-gradient-to-r from-nak-bright to-transparent mt-2 group-hover:w-20 transition-all duration-500" />
-                </div>
-              </div>
-            ))}
 
-            <div className="about-accent-card p-6 rounded-2xl bg-gradient-to-br from-nak-deep to-nak-bright relative overflow-hidden shadow-lg shadow-nak-deep/30">
-              <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-white/10 blur-2xl" />
-              <div className="relative">
-                <div className="flex items-center gap-3 mb-3">
-                  <div className="w-9 h-9 rounded-lg bg-white/20 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+              {/* FLOATING STATS */}
+
+              <div className="absolute bottom-6 left-6 right-6 grid grid-cols-3 gap-3">
+
+                {stats.map((stat) => (
+
+                  <div
+                    key={stat.label}
+                    className="about-stat-card backdrop-blur-lg bg-white/80 border border-white/40 rounded-xl p-4 text-center"
+                  >
+
+                    <div className="text-2xl font-extrabold text-nak-deep">
+
+                      <span
+                        className="stat-number"
+                        data-target={stat.value}
+                      >
+                        0
+                      </span>
+
+                      {stat.suffix}
+
+                    </div>
+
+                    <div className="text-xs text-slate-600 mt-1">
+                      {stat.label}
+                    </div>
+
                   </div>
-                  <span className="text-white font-bold">Fast. Scalable. Reliable.</span>
-                </div>
-                <p className="text-white/90 text-sm leading-relaxed">
-                  Technology solutions that evolve with your business, delivering measurable
-                  results at every stage of your digital journey.
-                </p>
+
+                ))}
+
               </div>
+
             </div>
+
+
+            {/* ACCENT CARD */}
+
+            <div className="about-accent-card mt-6 p-6 rounded-2xl bg-gradient-to-br from-nak-deep to-nak-bright relative overflow-hidden shadow-lg shadow-nak-deep/30">
+
+              <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-white/10 blur-2xl" />
+
+              <div className="relative">
+
+                <div className="flex items-center gap-3 mb-3">
+
+                  <div className="w-9 h-9 rounded-lg bg-white/20 flex items-center justify-center">
+
+                    <svg
+                      className="w-5 h-5 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
+
+                    </svg>
+
+                  </div>
+
+                  <span className="text-white font-bold">
+                    Fast. Scalable. Reliable.
+                  </span>
+
+                </div>
+
+                <p className="text-white/90 text-sm leading-relaxed">
+                  Technology solutions that evolve with your business,
+                  delivering measurable results at every stage of your
+                  digital journey.
+                </p>
+
+              </div>
+
+            </div>
+
           </div>
+
         </div>
+
       </div>
+
     </section>
+
   )
+
 }

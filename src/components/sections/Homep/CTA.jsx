@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '../../../utils/gsap'
 import MagneticButton from '../../ui/MagneticButton'
-
+import { Link } from 'react-router-dom'
 const ctaStats = [
   { value: '10k+', label: 'Developers' },
   { value: '50k+', label: 'Projects Built' },
@@ -56,18 +56,22 @@ export default function CTA() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <MagneticButton
-            href="mailto:Info@nakitgroup.com"
-            className="cta-btn w-full sm:w-auto px-8 py-4 rounded-full bg-white text-nak-deep font-bold text-base shadow-xl shadow-black/20"
-          >
-            Contact Us Now
-          </MagneticButton>
-          <MagneticButton
-            href="#services"
-            className="cta-btn w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 border border-white/25 text-white font-bold text-base hover:bg-white/20 hover:border-white/40 transition-colors duration-300"
-          >
-            View Services
-          </MagneticButton>
+          <Link to="/contact">
+            <MagneticButton
+              href="mailto:Info@nakitgroup.com"
+              className="cta-btn w-full sm:w-auto px-8 py-4 rounded-full bg-white text-nak-deep font-bold text-base shadow-xl shadow-black/20"
+            >
+              Contact Us Now
+            </MagneticButton>
+          </Link>
+          <Link to="/services">
+            <MagneticButton
+            
+              className="cta-btn w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 border border-white/25 text-white font-bold text-base hover:bg-white/20 hover:border-white/40 transition-colors duration-300"
+            >
+              View Services
+            </MagneticButton>
+          </Link>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-12">
@@ -80,16 +84,16 @@ export default function CTA() {
         </div>
 
         <div className="cta-contact-row flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 border-t border-white/10">
-          <a href="tel:+17133203582" className="flex items-center gap-2 text-white/90/70 hover:text-white transition-colors text-sm">
-            <svg className="w-4 h-4 text-nak-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+          <a href="tel:+17133203582" className="flex items-center gap-2 text-white hover:text-white transition-colors text-sm">
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
             +1 7133203582
           </a>
-          <a href="mailto:Info@nakitgroup.com" className="flex items-center gap-2 text-white/90/70 hover:text-white transition-colors text-sm">
-            <svg className="w-4 h-4 text-nak-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+          <a href="mailto:Info@nakitgroup.com" className="flex items-center gap-2 text-white hover:text-white transition-colors text-sm">
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
             Info@nakitgroup.com
           </a>
-          <span className="flex items-center gap-2 text-white/90/70 text-sm">
-            <svg className="w-4 h-4 text-nak-bright" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+          <span className="flex items-center gap-2 text-white text-sm">
+            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
             Charleston, South Carolina 29406
           </span>
         </div>
