@@ -22,40 +22,42 @@ const leaders = [
 export default function AboutLeadership() {
   return (
     <section className="bg-white">
-      <div className="container-app py-20">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-10">
+      <div className="container-app py-14 sm:py-16 md:py-20">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 sm:gap-6 mb-8 sm:mb-10">
           <div>
-            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-nak-deep/90">
+            <p className="text-[10px] sm:text-xs font-semibold tracking-[0.25em] sm:tracking-[0.3em] uppercase text-nak-deep/90">
               Leadership
             </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mt-2">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-slate-900 mt-1 sm:mt-2">
               Practitioners, not just advisors.
             </h2>
           </div>
-          <p className="text-slate-600 text-sm md:text-base max-w-xl">
+          <p className="text-slate-600 text-xs sm:text-sm md:text-base max-w-xl">
             Our leadership team has led large‑scale transformations across cloud, data, security and
             product engineering, bringing hands‑on experience from top consulting and technology firms.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
           {leaders.map((leader) => (
             <article
               key={leader.name}
-              className="group rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900/70 to-slate-950/90 overflow-hidden hover:border-nak-bright hover:-translate-y-1.5 transition-all duration-300"
+              className="group rounded-xl sm:rounded-2xl border border-slate-800 bg-gradient-to-b from-slate-900/70 to-slate-950/90 overflow-hidden hover:border-nak-bright hover:-translate-y-1.5 transition-all duration-300"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
                   src={leader.image}
                   alt={leader.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
               </div>
-              <div className="p-5">
-                <p className="text-sm font-semibold text-white">{leader.name}</p>
-                <p className="text-xs text-nak-bright mt-1">{leader.role}</p>
-                <p className="text-xs text-slate-400 mt-3 leading-relaxed">
+              <div className="p-4 sm:p-5">
+                <p className="text-xs sm:text-sm font-semibold text-white">{leader.name}</p>
+                <p className="text-[10px] sm:text-xs text-nak-bright mt-0.5 sm:mt-1">{leader.role}</p>
+                <p className="text-[11px] sm:text-xs text-slate-400 mt-2 sm:mt-3 leading-relaxed">
                   Advisor to CIOs and digital leaders on cloud strategy, operating models, and high‑performing
                   engineering cultures.
                 </p>

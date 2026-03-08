@@ -64,42 +64,42 @@ export default function Testimonials() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-slate-50 py-24 relative overflow-hidden">
-      <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-nak-bright/20 blur-[100px] pointer-events-none" />
+    <section ref={sectionRef} className="bg-slate-50 py-14 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden">
+      <div className="absolute top-0 right-1/4 w-64 sm:w-80 lg:w-96 h-64 sm:h-80 lg:h-96 rounded-full bg-nak-bright/20 blur-[80px] sm:blur-[100px] pointer-events-none" />
 
       <div className="container-app relative">
         {/* Header */}
-        <div className="testimonials-header text-center mb-16 overflow-hidden">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-nak-bright/10 border border-nak-bright/30 text-nak-deep text-xs font-semibold uppercase tracking-widest mb-4">
+        <div className="testimonials-header text-center mb-10 sm:mb-12 md:mb-14 lg:mb-16 overflow-hidden px-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-nak-bright/10 border border-nak-bright/30 text-nak-deep text-[10px] sm:text-xs font-semibold uppercase tracking-widest mb-3 sm:mb-4">
             Client Stories
           </div>
-          <h2 className="testimonials-title text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-4">
+          <h2 className="testimonials-title text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight mb-3 sm:mb-4">
             Trusted by{' '}
             <span className="bg-gradient-to-r from-nak-deep to-cyan-500 bg-clip-text text-transparent">industry leaders</span>
           </h2>
-          <p className="testimonials-sub text-slate-500 text-lg max-w-xl mx-auto">
+          <p className="testimonials-sub text-slate-500 text-base sm:text-lg max-w-xl mx-auto px-1">
             See how NAK IT Group has helped global brands achieve digital excellence and drive transformation.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="testimonials-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6" style={{ perspective: '1200px' }}>
+        <div className="testimonials-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6" style={{ perspective: '1200px' }}>
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="testimonial-card p-6 rounded-2xl bg-white border border-slate-200 flex flex-col cursor-default select-none"
+              className="testimonial-card p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl bg-white border border-slate-200 flex flex-col cursor-default select-none min-w-0"
               style={{ willChange: 'transform', transformStyle: 'preserve-3d' }}
             >
               {/* Quote mark */}
-              <div className="text-5xl text-nak-bright/60 font-serif leading-none mb-3 select-none">"</div>
-              <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">{t.quote}</p>
-              <div className="flex items-center gap-3 pt-4 border-t border-slate-100">
-                <div className={`w-10 h-10 rounded-full bg-gradient-to-br ${t.accent} flex items-center justify-center text-white text-xs font-bold flex-shrink-0 shadow-sm`}>
+              <div className="text-4xl sm:text-5xl text-nak-bright/60 font-serif leading-none mb-2 sm:mb-3 select-none">"</div>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 flex-grow">{t.quote}</p>
+              <div className="flex items-center gap-2.5 sm:gap-3 pt-3 sm:pt-4 border-t border-slate-100">
+                <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-gradient-to-br ${t.accent} flex items-center justify-center text-white text-[10px] sm:text-xs font-bold flex-shrink-0 shadow-sm`}>
                   {t.avatar}
                 </div>
-                <div>
-                  <div className="text-slate-900 font-semibold text-sm">{t.author}</div>
-                  <div className="text-slate-400 text-xs">{t.role}</div>
+                <div className="min-w-0">
+                  <div className="text-slate-900 font-semibold text-xs sm:text-sm truncate">{t.author}</div>
+                  <div className="text-slate-400 text-[10px] sm:text-xs truncate">{t.role}</div>
                 </div>
               </div>
             </div>

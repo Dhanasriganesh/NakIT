@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import { gsap } from '../../utils/gsap'
-import logo from '../../assets/nakitlogo.png'
+import logo from '../../assets/nakitlogo.webp'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -65,20 +65,26 @@ export default function Header() {
           : 'bg-white/80 backdrop-blur-sm border-b border-slate-100'
       }`}
     >
-      <div className="container-app py-2 flex items-center justify-between">
+      <div className="container-app py-1.5 sm:py-2 flex items-center justify-between gap-4">
         {/* Logo */}
-        <NavLink to="/" className="header-logo flex items-center gap-3 group">
-          <img src={logo} alt="NAK IT Solutions" className="h-18 w-28 object-contain transition-transform duration-300 group-hover:scale-105" />
+        <NavLink to="/" className="header-logo flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0">
+          <img
+            src={logo}
+            alt="NAK IT Solutions"
+            className="h-10 w-20 sm:h-12 sm:w-24 md:h-14 md:w-28 object-contain object-left transition-transform duration-300 group-hover:scale-105"
+            decoding="async"
+            fetchPriority="high"
+          />
         </NavLink>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-5 lg:gap-6 xl:gap-8">
           {navLinks.map((link) => (
             <NavLink
               key={link.label}
               to={link.to}
               className={({ isActive }) =>
-                `header-nav-link text-sm transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-nak-bright after:transition-all after:duration-300 ${
+                `header-nav-link text-xs lg:text-sm transition-colors duration-200 relative after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-nak-bright after:transition-all after:duration-300 whitespace-nowrap ${
                   isActive
                     ? 'text-nak-deep font-semibold after:w-full'
                     : 'font-medium text-nak-muted hover:text-nak-bright after:w-0 hover:after:w-full'
@@ -90,21 +96,19 @@ export default function Header() {
           ))}
         </nav>
 
-        {/* CTA */}
-       
-
-        {/* Mobile Menu Button */}
+        {/* Mobile Menu Button - min touch target 44px */}
         <button
-          className="md:hidden text-nak-muted hover:text-nak-text transition-colors"
+          className="md:hidden p-2.5 -mr-2.5 text-nak-muted hover:text-nak-text transition-colors rounded-lg hover:bg-slate-100 active:bg-slate-200"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
         >
           {menuOpen ? (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           ) : (
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
           )}
@@ -113,15 +117,15 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white border-t border-slate-200 container-app py-4 shadow-lg">
-          <nav className="flex flex-col gap-4">
+        <div className="md:hidden bg-white border-t border-slate-200 container-app py-4 pb-5 shadow-lg">
+          <nav className="flex flex-col gap-0.5">
             {navLinks.map((link) => (
               <NavLink
                 key={link.label}
                 to={link.to}
                 className={({ isActive }) =>
-                  `text-sm font-medium transition-colors py-1 ${
-                    isActive ? 'text-nak-deep font-semibold' : 'text-nak-muted hover:text-nak-bright'
+                  `text-sm font-medium transition-colors py-3 px-1 rounded-lg min-h-[44px] flex items-center ${
+                    isActive ? 'text-nak-deep font-semibold bg-nak-deep/5' : 'text-nak-muted hover:text-nak-bright hover:bg-slate-50'
                   }`
                 }
                 onClick={() => setMenuOpen(false)}
@@ -131,7 +135,7 @@ export default function Header() {
             ))}
             <NavLink
               to="/contact"
-              className="mt-2 px-5 py-2.5 rounded-full bg-nak-deep hover:bg-nak-bright text-white text-sm font-semibold text-center transition-colors"
+              className="mt-2 px-5 py-3 rounded-full bg-nak-deep hover:bg-nak-bright text-white text-sm font-semibold text-center transition-colors min-h-[44px] flex items-center justify-center"
               onClick={() => setMenuOpen(false)}
             >
               Get Started

@@ -1,14 +1,15 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '../../../utils/gsap'
 
-import energy from "../../../assets/industries/energy.png"
-import finance from "../../../assets/industries/financial.png"
-import healthcare from "../../../assets/industries/health.png"
-import media from "../../../assets/industries/media.png"
-import technology from "../../../assets/industries/tech.png"
-import telecommunications from "../../../assets/industries/tele.png"
-import transportation from "../../../assets/industries/transport.png"
-import automobile from "../../../assets/industries/automate.png"
+import energy from "../../../assets/industries/energy.webp"
+import finance from "../../../assets/industries/financial.webp"
+import healthcare from "../../../assets/industries/health.webp"
+import media from "../../../assets/industries/media.webp"
+import technology from "../../../assets/industries/tech.webp"
+import telecommunications from "../../../assets/industries/tele.webp"
+import transportation from "../../../assets/industries/transport.webp"
+import automobile from "../../../assets/industries/automate.webp"
+import retail from "../../../assets/industries/retail.webp"
 
 
 const services = [
@@ -55,7 +56,7 @@ const services = [
     accent: '#2eafe6'
   },
   {
-    image: technology,
+    image: retail,
     title: 'Consumer & Industrial Products',
     description: 'Manufacturing and supply chain digital transformation.',
     tags: ['Manufacturing', 'Supply Chain', 'PLM'],
@@ -133,19 +134,19 @@ export default function ServicesOverview() {
 
   return (
 
-    <section ref={sectionRef} className="bg-slate-50 py-24 relative overflow-hidden" id="services">
+    <section ref={sectionRef} className="bg-slate-50 py-14 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden" id="services">
 
       <div className="container-app">
 
         {/* Header */}
 
-        <div className="services-header text-center mb-16">
+        <div className="services-header text-center mb-10 sm:mb-12 md:mb-14 lg:mb-16">
 
-          <div className="services-badge inline-flex px-3 py-1.5 rounded-full bg-nak-bright/10 border border-nak-bright/30 text-nak-deep text-xs font-semibold uppercase tracking-widest mb-4">
+          <div className="services-badge inline-flex px-3 py-1.5 rounded-full bg-nak-bright/10 border border-nak-bright/30 text-nak-deep text-[10px] sm:text-xs font-semibold uppercase tracking-widest mb-3 sm:mb-4">
             Services Overview
           </div>
 
-          <h2 className="services-title text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">
+          <h2 className="services-title text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 mb-3 sm:mb-4 px-1">
             Industry-focused
             <span className="bg-gradient-to-r from-nak-deep to-cyan-500 bg-clip-text text-transparent">
               {" "}technology solutions
@@ -157,7 +158,7 @@ export default function ServicesOverview() {
 
         {/* Grid */}
 
-        <div className="services-grid grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="services-grid grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6">
 
           {services.map((service) => (
 
@@ -179,6 +180,8 @@ export default function ServicesOverview() {
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
 
               </div>
@@ -186,23 +189,23 @@ export default function ServicesOverview() {
 
               {/* Content */}
 
-              <div className="p-6 transition-colors duration-300">
+              <div className="p-4 sm:p-5 md:p-6 transition-colors duration-300">
 
-                <h3 className="text-slate-900 font-bold text-lg mb-3 group-hover:text-slate-800 transition-colors duration-300">
+                <h3 className="text-slate-900 font-bold text-base sm:text-lg mb-2 sm:mb-3 group-hover:text-slate-800 transition-colors duration-300">
                   {service.title}
                 </h3>
 
-                <p className="text-slate-500 text-sm leading-relaxed mb-4 group-hover:text-slate-600 transition-colors duration-300">
+                <p className="text-slate-500 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4 group-hover:text-slate-600 transition-colors duration-300 line-clamp-3">
                   {service.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2">
 
                   {service.tags.map(tag => (
 
                     <span
                       key={tag}
-                      className="text-xs px-2.5 py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200/80 transition-all duration-300 group-hover:bg-slate-200/70 group-hover:border-slate-300/80"
+                      className="text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-slate-100 text-slate-600 border border-slate-200/80 transition-all duration-300 group-hover:bg-slate-200/70 group-hover:border-slate-300/80"
                     >
                       {tag}
                     </span>

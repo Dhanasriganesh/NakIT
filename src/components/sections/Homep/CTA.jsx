@@ -34,65 +34,64 @@ export default function CTA() {
   }, [])
 
   return (
-    <section ref={sectionRef} className="bg-gradient-to-br from-nak-deep via-nak-text to-nak-deep py-24 relative overflow-hidden" id="contact">
+    <section ref={sectionRef} className="bg-gradient-to-br from-nak-deep via-nak-text to-nak-deep py-14 sm:py-16 md:py-20 lg:py-24 relative overflow-hidden" id="contact">
       <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:50px_50px]" />
-      <div className="cta-blob-1 absolute top-1/3 left-1/4 w-[500px] h-[400px] rounded-full bg-nak-bright/10 blur-[100px] pointer-events-none" />
-      <div className="cta-blob-2 absolute bottom-0 right-1/4 w-[300px] h-[300px] rounded-full bg-white/5 blur-[80px] pointer-events-none" />
+      <div className="cta-blob-1 absolute top-1/3 left-1/4 w-[280px] sm:w-[400px] md:w-[500px] h-[220px] sm:h-[320px] md:h-[400px] rounded-full bg-nak-bright/10 blur-[80px] sm:blur-[100px] pointer-events-none" />
+      <div className="cta-blob-2 absolute bottom-0 right-1/4 w-[200px] sm:w-[260px] md:w-[300px] h-[200px] sm:h-[260px] md:h-[300px] rounded-full bg-white/5 blur-[60px] sm:blur-[80px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-6 md:px-8 relative text-center">
-        <div className="cta-badge inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-xs font-semibold uppercase tracking-widest mb-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 md:px-8 relative text-center">
+        <div className="cta-badge inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white/90 text-[10px] sm:text-xs font-semibold uppercase tracking-widest mb-6 sm:mb-8">
           <span className="w-1.5 h-1.5 rounded-full bg-nak-bright animate-pulse" />
           Get Started Today
         </div>
 
-        <h2 className="cta-headline text-4xl md:text-6xl lg:text-7xl font-extrabold text-white leading-tight tracking-tighter mb-6">
+        <h2 className="cta-headline text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-extrabold text-white leading-tight tracking-tighter mb-4 sm:mb-6">
           Ready to build<br />
           <span className="text-nak-bright">something amazing?</span>
         </h2>
 
-        <p className="cta-sub text-white/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-10">
+        <p className="cta-sub text-white/80 text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8 sm:mb-10 px-1">
           Join thousands of organizations who are transforming faster with NAK IT Group. Start your
           free consultation today and experience the difference.
         </p>
 
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-          <Link to="/contact">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mb-12 sm:mb-16 max-w-sm sm:max-w-none mx-auto">
+          <Link to="/contact" className="w-full sm:w-auto">
             <MagneticButton
               href="mailto:Info@nakitgroup.com"
-              className="cta-btn w-full sm:w-auto px-8 py-4 rounded-full bg-white text-nak-deep font-bold text-base shadow-xl shadow-black/20"
+              className="cta-btn w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white text-nak-deep font-bold text-sm sm:text-base shadow-xl shadow-black/20"
             >
               Contact Us Now
             </MagneticButton>
           </Link>
-          <Link to="/services">
+          <Link to="/services" className="w-full sm:w-auto">
             <MagneticButton
-            
-              className="cta-btn w-full sm:w-auto px-8 py-4 rounded-full bg-white/10 border border-white/25 text-white font-bold text-base hover:bg-white/20 hover:border-white/40 transition-colors duration-300"
+              className="cta-btn w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-white/10 border border-white/25 text-white font-bold text-sm sm:text-base hover:bg-white/20 hover:border-white/40 transition-colors duration-300"
             >
               View Services
             </MagneticButton>
           </Link>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-3xl mx-auto mb-8 sm:mb-12">
           {ctaStats.map((stat) => (
             <div key={stat.label} className="cta-stat text-center">
-              <div className="text-3xl font-extrabold text-white mb-1">{stat.value}</div>
-              <div className="text-nak-bright/70 text-sm">{stat.label}</div>
+              <div className="text-2xl sm:text-3xl font-extrabold text-white mb-0.5 sm:mb-1">{stat.value}</div>
+              <div className="text-nak-bright/70 text-xs sm:text-sm">{stat.label}</div>
             </div>
           ))}
         </div>
 
-        <div className="cta-contact-row flex flex-col sm:flex-row items-center justify-center gap-6 pt-8 border-t border-white/10">
-          <a href="tel:+17133203582" className="flex items-center gap-2 text-white hover:text-white transition-colors text-sm">
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+        <div className="cta-contact-row flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-white/10 text-center sm:text-left">
+          <a href="tel:+17133203582" className="flex items-center justify-center sm:justify-start gap-2 text-white hover:text-white transition-colors text-xs sm:text-sm">
+            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
             +1 7133203582
           </a>
-          <a href="mailto:Info@nakitgroup.com" className="flex items-center gap-2 text-white hover:text-white transition-colors text-sm">
-            <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+          <a href="mailto:Info@nakitgroup.com" className="flex items-center justify-center sm:justify-start gap-2 text-white hover:text-white transition-colors text-xs sm:text-sm break-all">
+            <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
             Info@nakitgroup.com
           </a>
-          <span className="flex items-center gap-2 text-white text-sm">
+          <span className="flex items-center justify-center sm:justify-start gap-2 text-white text-xs sm:text-sm">
             <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
             Charleston, South Carolina 29406
           </span>

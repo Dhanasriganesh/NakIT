@@ -2,11 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import { gsap } from '../../../utils/gsap'
 import MagneticButton from '../../ui/MagneticButton'
 
-import homeExpertiseImage from '../../../assets/nakit-images/home-expertise.png'
-import homeInnovationImage from '../../../assets/nakit-images/home-innovation.png'
-import homeReliabilityImage from '../../../assets/nakit-images/home-reliability.png'
-import homeInteractionImage from '../../../assets/nakit-images/home-interaction.png'
-import homePartnershipImage from '../../../assets/nakit-images/home-partnership.png'
+import homeExpertiseImage from '../../../assets/nakit-images/home-expertise.webp'
+import homeInnovationImage from '../../../assets/nakit-images/home-innovation.webp'
+import homeReliabilityImage from '../../../assets/nakit-images/home-reliability.webp'
+import homeInteractionImage from '../../../assets/nakit-images/home-interaction.webp'
+import homePartnershipImage from '../../../assets/nakit-images/home-partnership.webp'
 
 const tabs = [
   {
@@ -182,15 +182,15 @@ export default function WhyChoose() {
 
   return (
 
-    <section ref={sectionRef} className="bg-white py-24">
+    <section ref={sectionRef} className="bg-white py-14 sm:py-16 md:py-20 lg:py-24">
 
       <div className="container-app">
 
         {/* Header */}
 
-        <div className="why-header text-center mb-16">
+        <div className="why-header text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16">
 
-          <h2 className="text-4xl md:text-5xl font-extrabold text-slate-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 px-2">
             Why Choose <span className="text-blue-600">NAK IT Group</span>
           </h2>
 
@@ -199,14 +199,14 @@ export default function WhyChoose() {
 
         {/* Tabs */}
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 md:mb-12 px-1">
 
           {tabs.map((tab, i) => (
 
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`why-tab-btn px-5 py-2 rounded-full text-sm font-semibold border transition ${
+              className={`why-tab-btn px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold border transition ${
                 activeTab === tab.id
                   ? 'bg-blue-600 text-white border-blue-600'
                   : 'border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -222,26 +222,26 @@ export default function WhyChoose() {
 
         {/* Content */}
 
-        <div ref={contentRef} className="grid lg:grid-cols-2 gap-12 items-center">
+        <div ref={contentRef} className="grid lg:grid-cols-2 gap-8 md:gap-10 lg:gap-12 items-center">
 
           {/* Left */}
 
-          <div className="why-content">
+          <div className="why-content order-2 lg:order-1">
 
-            <h3 className="text-3xl font-bold mb-4">
+            <h3 className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4">
               {activeData.heading}
             </h3>
 
-            <p className="text-slate-600 mb-6">
+            <p className="text-slate-600 text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed">
               {activeData.description}
             </p>
 
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-2 sm:space-y-3 mb-6 sm:mb-8">
 
               {activeData.bullets.map(b => (
 
-                <li key={b} className="why-bullet flex gap-3 text-slate-700">
-                  <span className="w-2 h-2 bg-blue-600 rounded-full mt-2"></span>
+                <li key={b} className="why-bullet flex gap-2 sm:gap-3 text-slate-700 text-sm sm:text-base">
+                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-blue-600 rounded-full mt-1.5 sm:mt-2 shrink-0"></span>
                   {b}
                 </li>
 
@@ -251,7 +251,7 @@ export default function WhyChoose() {
 
             <MagneticButton
               href="#contact"
-              className="px-6 py-3 bg-blue-600 text-white rounded-full font-semibold"
+              className="px-5 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-full font-semibold text-sm sm:text-base"
             >
               Learn More
             </MagneticButton>
@@ -261,37 +261,39 @@ export default function WhyChoose() {
 
           {/* Right Image Card */}
 
-          <div className="relative rounded-3xl overflow-hidden shadow-xl border">
+          <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-xl border order-1 lg:order-2">
 
             <img
               src={activeData.image}
               alt={activeData.heading}
-              className="why-image w-full h-[420px] object-cover"
+              className="why-image w-full h-56 sm:h-72 md:h-80 lg:h-[420px] object-cover"
+              loading="lazy"
+              decoding="async"
             />
 
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
 
-            <div className="absolute bottom-0 p-8 text-white">
+            <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6 lg:p-8 text-white">
 
-              <h4 className="text-2xl font-bold mb-2">
+              <h4 className="text-xl sm:text-2xl font-bold mb-1 sm:mb-2">
                 {activeData.heading}
               </h4>
 
-              <p className="text-white/80 text-sm mb-5">
+              <p className="text-white/80 text-xs sm:text-sm mb-3 sm:mb-4 md:mb-5">
                 {activeData.subheading}
               </p>
 
-              <div className="flex gap-6">
+              <div className="flex flex-wrap gap-4 sm:gap-5 md:gap-6">
 
                 {activeData.stats.map(stat => (
 
                   <div key={stat.label}>
 
-                    <div className="text-xl font-bold">
+                    <div className="text-lg sm:text-xl font-bold">
                       {stat.value}
                     </div>
 
-                    <div className="text-xs text-white/70">
+                    <div className="text-[10px] sm:text-xs text-white/70">
                       {stat.label}
                     </div>
 
