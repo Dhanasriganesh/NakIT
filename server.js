@@ -150,7 +150,7 @@ const createApplicationEmailTemplate = (data) => {
           ${data.hasFile ? '<div class="field"><div class="field-label">Resume/Portfolio</div><div class="field-value">📎 File attached</div></div>' : ''}
         </div>
         <div class="footer">
-          <p>This email was sent from the ABSN IT Careers Application Form</p>
+          <p>This email was sent from the NAK IT Group Careers Application Form</p>
           <p>Submitted on: ${new Date().toLocaleString()}</p>
         </div>
       </div>
@@ -259,7 +259,7 @@ const createContactEmailTemplate = (data) => {
           ${data.hasFile ? '<div class="field"><div class="field-label">Supporting File</div><div class="field-value">📎 File attached</div></div>' : ''}
         </div>
         <div class="footer">
-          <p>This email was sent from the ABSN IT Contact Form</p>
+          <p>This email was sent from the NAK IT Group Contact Form</p>
           <p>Submitted on: ${new Date().toLocaleString()}</p>
         </div>
       </div>
@@ -363,7 +363,7 @@ const createEmailTemplate = (data) => {
           </div>
         </div>
         <div class="footer">
-          <p>This email was sent from the ABSN IT Careers Application Form</p>
+          <p>This email was sent from the NAK IT Group Careers Application Form</p>
           <p>Submitted on: ${new Date().toLocaleString()}</p>
         </div>
       </div>
@@ -414,7 +414,7 @@ app.post('/api/careers/apply', upload.single('file'), async (req, res) => {
 
     // Email options
     const mailOptions = {
-      from: `"ABSN IT Careers" <${process.env.GMAIL_USER}>`,
+      from: `"NAK IT Group Careers" <${process.env.GMAIL_USER}>`,
       to: process.env.MAIL_TO || 'ganeshdhanasri7@gmail.com',
       subject: `New Career Application: ${role} - ${name}`,
       html: createApplicationEmailTemplate({
@@ -559,7 +559,7 @@ app.post('/api/contact', upload.single('file'), async (req, res) => {
 
     // Email options
     const mailOptions = {
-      from: `"ABSN IT Contact" <${process.env.GMAIL_USER}>`,
+      from: `"NAK IT Group Contact" <${process.env.GMAIL_USER}>`,
       to: process.env.MAIL_TO || 'ganeshdhanasri7@gmail.com',
       subject: `New Contact Form: ${topic} - ${name}`,
       html: createContactEmailTemplate({

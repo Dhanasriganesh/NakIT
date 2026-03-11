@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { gsap } from '../../../utils/gsap'
 import heroVideo from '../../../assets/nakit.mp4'
+import { Link } from 'react-router-dom'
 
 export default function Hero() {
   const heroRef = useRef(null)
@@ -21,28 +22,66 @@ export default function Hero() {
       className="relative w-full h-[100dvh] min-h-[100dvh] max-h-[100dvh] sm:h-screen sm:min-h-screen sm:max-h-screen flex items-center justify-center overflow-hidden bg-slate-900"
       id="hero"
     >
-      {/* Video fills from below header to bottom; dark bg shows while loading or if video fails */}
-      <video
-        ref={videoRef}
-        src={heroVideo}
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        style={{ top: 0, left: 0, right: 0, bottom: 0 }}
-        autoPlay
-        muted
-        loop
-        playsInline
-        aria-hidden
-      />
-      {/* Light black overlay; gradient for bottom contrast */}
-      <div className="hero-video-overlay absolute inset-0 bg-black/40 pointer-events-none z-[1]" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-[1]" />
+      {/* Mobile hero (background image) */}
+      <div
+        className="sm:hidden relative w-full h-full flex items-center justify-center px-6 py-10 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            'url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80")',
+        }}
+      >
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="relative z-10 max-w-md text-center space-y-4">
+          <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[10px] font-medium uppercase tracking-[0.2em] text-teal-300">
+            IT &amp; AI Solutions
+          </span>
+          <h1 className="text-2xl leading-snug font-semibold text-white">
+            Empowering businesses with intelligent, future‑ready technology.
+          </h1>
+          <p className="text-xs text-slate-200/80">
+            From secure infrastructure to AI‑driven automation, we design and deliver scalable digital solutions tailored
+            to your growth.
+          </p>
+          <div className="flex items-center justify-center gap-3 pt-1">
+            <Link to="/services">
+              <button className="rounded-full bg-teal-500 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-white shadow-lg shadow-teal-500/40 hover:bg-teal-400 transition-colors">
+                Explore Services
+              </button>
+            </Link>
+            <Link to="/contact">
+              <button className="rounded-full border border-white/30 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.16em] text-white/90 bg-white/5 backdrop-blur hover:bg-white/10 transition-colors">
+                Talk to Experts
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
 
-      {/* Scroll cue */}
-      <div className="hero-scroll-indicator absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 sm:gap-2 z-10">
-        <span className="text-white/80 text-[10px] sm:text-xs tracking-widest uppercase">Scroll</span>
-        <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-        </svg>
+      {/* Desktop / tablet hero (video background) */}
+      <div className="hidden sm:block relative w-full h-full">
+        {/* Video fills from below header to bottom; dark bg shows while loading or if video fails */}
+        <video
+          ref={videoRef}
+          src={heroVideo}
+          className="absolute inset-0 w-full h-full object-cover object-center"
+          style={{ top: 0, left: 0, right: 0, bottom: 0 }}
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-hidden
+        />
+        {/* Light black overlay; gradient for bottom contrast */}
+        <div className="hero-video-overlay absolute inset-0 bg-black/40 pointer-events-none z-[1]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none z-[1]" />
+
+        {/* Scroll cue */}
+        <div className="hero-scroll-indicator absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 sm:gap-2 z-10">
+          <span className="text-white/80 text-[10px] sm:text-xs tracking-widest uppercase">Scroll</span>
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 text-white/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+          </svg>
+        </div>
       </div>
     </section>
   )
