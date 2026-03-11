@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 import { gsap } from '../../utils/gsap'
-import logo from '../../assets/nakitlogo.webp'
+import logo from '../../assets/nak-it-logo.png'
 
 const navLinks = [
   { label: 'Home', to: '/' },
@@ -65,13 +65,13 @@ export default function Header() {
           : 'bg-white/80 backdrop-blur-sm border-b border-slate-100'
       }`}
     >
-      <div className="container-app py-1.5 sm:py-2 flex items-center justify-between gap-4">
+      <div className="container-app flex items-center justify-between">
         {/* Logo */}
-        <NavLink to="/" className="header-logo flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0">
+        <NavLink to="/" className="header-logo flex items-center gap-3 sm:gap-4 group shrink-0 min-w-0">
           <img
             src={logo}
             alt="NAK IT Solutions"
-            className="h-10 w-20 sm:h-12 sm:w-24 md:h-14 md:w-28 object-contain object-left transition-transform duration-300 group-hover:scale-105"
+            className="h-48 sm:h-20 md:h-18 w-auto object-contain object-left transition-transform duration-300 group-hover:scale-105"
             decoding="async"
             fetchPriority="high"
           />

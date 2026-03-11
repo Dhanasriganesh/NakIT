@@ -96,8 +96,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 sm:gap-10 lg:gap-12 mb-8 sm:mb-10 lg:mb-12">
           {/* Brand + Contact */}
           <div className="footer-col lg:col-span-1 sm:col-span-2">
-            <NavLink to="/" className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
-              <img src={logo} alt="NAK IT Solutions" className="h-8 sm:h-9 md:h-10 w-auto object-contain" loading="lazy" decoding="async" />
+            <NavLink to="/" className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-5">
+              <img
+                src={logo}
+                alt="NAK IT Solutions"
+                className="h-10 sm:h-12 md:h-14 w-auto object-contain"
+                loading="lazy"
+                decoding="async"
+              />
             </NavLink>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4 sm:mb-6 max-w-md">
               Leading IT consulting team empowering businesses with innovative technology solutions and digital transformation.

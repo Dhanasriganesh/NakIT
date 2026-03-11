@@ -1,217 +1,289 @@
-import { useState } from 'react'
-import { apiContact } from '../../../config/api'
+﻿import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import inTouchImage from '../../../assets/nakit-images/contact.webp';
 
-const CONTACT = {
-  email: 'Info@nakitgroup.com',
-  phone: '+1 7133203582',
-  address: '6650 Rivers Ave STE 100, Charleston, South Carolina 29406',
-  addressForMap: '6650+Rivers+Ave+STE+100,+Charleston,+South+Carolina+29406',
-}
+const ContactFormSection = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    company: '',
+    email: '',
+    mobile: '',
+    topic: '',
+    message: '',
+  });
+  const [file, setFile] = useState(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' });
 
-const TOPIC_OPTIONS = [
-  { value: '', label: 'Select' },
-  { value: 'strategy', label: 'Strategy / innovation' },
-  { value: 'platforms', label: 'Platforms / engineering' },
-  { value: 'ai', label: 'AI & automation' },
-  { value: 'careers', label: 'Careers' },
-  { value: 'media', label: 'Media / partnerships' },
-]
-
-const initialFormData = {
-  name: '',
-  company: '',
-  email: '',
-  mobile: '',
-  topic: '',
-  message: '',
-}
-
-export default function ContactFormSection() {
-  const [formData, setFormData] = useState(initialFormData)
-  const [file, setFile] = useState(null)
-  const [submitted, setSubmitted] = useState(false)
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [submitStatus, setSubmitStatus] = useState({ type: '', message: '' })
+  const getApiBaseUrl = () =>
+    import.meta.env.VITE_API_URL || '/api';
 
   const handleChange = (e) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-    setSubmitted(false)
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    setSubmitted(false);
+  };
 
   const handleFileChange = (e) => {
-    setFile(e.target.files[0] || null)
-    setSubmitted(false)
-  }
+    setFile(e.target.files[0] || null);
+    setSubmitted(false);
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!formData.name?.trim() || !formData.email?.trim() || !formData.topic?.trim()) {
-      setSubmitStatus({ type: 'error', message: 'Please fill in all required fields (Name, Email, Topic).' })
-      return
-    }
-    setIsSubmitting(true)
-    setSubmitStatus({ type: '', message: '' })
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus({ type: '', message: '' });
+
     try {
-      const payload = new FormData()
-      payload.append('name', formData.name.trim())
-      payload.append('company', formData.company.trim())
-      payload.append('email', formData.email.trim())
-      payload.append('mobile', formData.mobile.trim())
-      payload.append('topic', formData.topic.trim())
-      payload.append('message', formData.message.trim())
-      if (file) payload.append('file', file)
+      const API_URL = getApiBaseUrl();
+      const payload = new FormData();
+      payload.append('name', formData.name);
+      payload.append('company', formData.company);
+      payload.append('email', formData.email);
+      payload.append('mobile', formData.mobile);
+      payload.append('topic', formData.topic);
+      payload.append('message', formData.message);
+      if (file) payload.append('file', file);
 
-      const res = await fetch(apiContact, { method: 'POST', body: payload })
+      const response = await fetch(`${API_URL}/contact`, {
+        method: 'POST',
+        body: payload,
+      });
 
-      const data = await res.json().catch(() => ({ success: false, error: 'Server error. Please try again later.' }))
-
-      if (!res.ok) {
-        setSubmitStatus({ type: 'error', message: data.error || `Server error: ${res.status}` })
-        return
+      if (!response.ok) {
+        const errorText = await response.text();
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch {
+          errorData = { error: 'Server error. Please try again later.' };
+        }
+        throw new Error(errorData.error || `Server error: ${response.status}`);
       }
+
+      const data = await response.json();
       if (data.success) {
-        setSubmitStatus({ type: 'success', message: 'Thank you! Your message has been sent.' })
-        setFormData(initialFormData)
-        setFile(null)
-        e.target.reset()
-        setSubmitted(true)
+        setSubmitStatus({ type: 'success', message: 'Thank you! Your message has been sent.' });
+        setFormData({ name: '', company: '', email: '', mobile: '', topic: '', message: '' });
+        setFile(null);
+        e.target.reset();
+        setSubmitted(true);
       } else {
-        setSubmitStatus({ type: 'error', message: data.error || 'Unable to send. Please try again.' })
+        setSubmitStatus({ type: 'error', message: data.error || 'Unable to send. Please try again.' });
       }
-    } catch (err) {
+    } catch (error) {
+      console.error('Error submitting form:', error);
       setSubmitStatus({
         type: 'error',
-        message: err.message || 'Network error. Please check your connection and try again.',
-      })
+        message: error.message || 'Network error. Please check your connection and try again.'
+      });
     } finally {
-      setIsSubmitting(false)
+      setIsSubmitting(false);
     }
-  }
+  };
 
   return (
-    <section className="bg-slate-100 py-12 sm:py-14 md:py-16 lg:py-20">
-      <div className="container-app grid lg:grid-cols-2 gap-6 sm:gap-8 lg:gap-10 items-start">
-        {/* Left: Get in Touch + Map */}
-        <div className="space-y-4 sm:space-y-6">
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg shadow-slate-200/60 p-5 sm:p-6 md:p-8">
-            <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-4 sm:mb-6 font-serif">
-              Get in Touch
-            </h2>
-            <div className="space-y-4 sm:space-y-6">
-              <div className="flex gap-3 sm:gap-4">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-nak-bright/10 border border-nak-bright/30 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-nak-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                  <p className="text-slate-900 font-semibold text-xs sm:text-sm mb-0.5">Email</p>
-                  <p className="text-slate-600 text-xs sm:text-sm mb-1 break-all">{CONTACT.email}</p>
-                  <a href={`mailto:${CONTACT.email}`} className="text-xs sm:text-sm text-nak-deep font-medium underline underline-offset-2 hover:text-nak-bright transition-colors">
-                    Send us an email
-                  </a>
-                </div>
-              </div>
-              <div className="flex gap-3 sm:gap-4">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-nak-bright/10 border border-nak-bright/30 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-nak-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                  <p className="text-slate-900 font-semibold text-xs sm:text-sm mb-0.5">Phone</p>
-                  <p className="text-slate-600 text-xs sm:text-sm mb-1">{CONTACT.phone}</p>
-                  <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} className="text-xs sm:text-sm text-nak-deep font-medium underline underline-offset-2 hover:text-nak-bright transition-colors">
-                    Call us now
-                  </a>
-                </div>
-              </div>
-              <div className="flex gap-3 sm:gap-4">
-                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-nak-bright/10 border border-nak-bright/30 flex items-center justify-center flex-shrink-0">
-                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-nak-deep" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                  </svg>
-                </div>
-                <div className="min-w-0">
-                  <p className="text-slate-900 font-semibold text-xs sm:text-sm mb-0.5">Address</p>
-                  <p className="text-slate-600 text-xs sm:text-sm whitespace-pre-line">{CONTACT.address}</p>
-                  <a href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT.address)}`} target="_blank" rel="noopener noreferrer" className="inline-block mt-1 text-xs sm:text-sm text-nak-deep font-medium underline underline-offset-2 hover:text-nak-bright transition-colors">
-                    View on map
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg shadow-slate-200/60 overflow-hidden">
-            <div className="aspect-[4/3] w-full max-h-[180px] sm:max-h-[200px] md:max-h-[260px] overflow-hidden rounded-b-xl sm:rounded-b-2xl">
-              <iframe title="NAK IT Solutions office location" src={`https://www.google.com/maps?q=${CONTACT.addressForMap}&hl=en&z=15&output=embed`} className="w-full h-full border-0" allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
-            </div>
-          </div>
+    <section className="relative overflow-hidden bg-white py-24 lg:py-32">
+      {/* Background elements */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.03]">
+        <div className="absolute inset-0" style={{
+          backgroundImage: `radial-gradient(#1e40af 0.5px, transparent 0.5px)`,
+          backgroundSize: '30px 30px'
+        }} />
+      </div>
+
+      <div className="container relative z-10 mx-auto px-4 lg:px-12">
+        <div className="max-w-3xl mb-16">
+          <p className="text-xs font-bold uppercase tracking-[0.4em] text-red-600 mb-6 flex items-center gap-3">
+            <span className="w-8 h-[1px] bg-red-600" />
+            Project Briefing
+          </p>
+          <h2 className="text-3xl md:text-5xl font-light text-slate-900 leading-tight mb-8">
+            Tell us about <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-red-600 font-normal">Your Vision</span>.
+          </h2>
+          <p className="text-sm md:text-base text-slate-600 leading-relaxed max-w-2xl">
+            Upload documents, outlines, or supporting files. We review every brief personally and typically respond within 24 hours.
+          </p>
         </div>
 
-        {/* Right: Send us a Message form */}
-        <div className="bg-white rounded-xl sm:rounded-2xl shadow-lg shadow-slate-200/60 p-5 sm:p-6 md:p-8">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-slate-900 mb-4 sm:mb-6 font-serif">
-            Send us a Message
-          </h2>
-          <p className="text-slate-600 text-xs sm:text-sm mb-4">
-            Upload documents, outlines, or supporting files. We keep everything confidential and respond with next steps.
-          </p>
-          <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
-            {submitStatus.message && (
-              <div className={`rounded-xl border px-3 py-2 text-xs font-semibold ${submitStatus.type === 'success' ? 'border-green-200 bg-green-50 text-green-700' : 'border-red-200 bg-red-50 text-red-700'}`}>
-                {submitStatus.message}
+        <div className="grid gap-12 lg:grid-cols-2 items-start">
+          {/* Left: Visual Accent */}
+          <div className="relative group overflow-hidden rounded-[48px] h-full min-h-[500px]">
+            <img
+              src={inTouchImage}
+              alt="Connect"
+              className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-slate-900/10 group-hover:bg-slate-900/5 transition-colors" />
+
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent" />
+
+            <div className="absolute bottom-10 left-10 right-10 p-10 rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20">
+              <p className="text-[10px] font-bold text-white uppercase tracking-widest mb-3">Enterprise Ready</p>
+              <p className="text-sm text-white/90 font-light leading-relaxed italic">
+                "We keep everything strictly confidential and protected by NDA by default."
+              </p>
+            </div>
+          </div>
+
+          {/* Right: Form */}
+          <div className="relative">
+            <form onSubmit={handleSubmit} className="space-y-8 p-10 md:p-12 rounded-[56px] bg-slate-50 border border-slate-100 shadow-2xl">
+              <div className="space-y-6">
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="name">Full Name</label>
+                    <input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full h-14 px-6 rounded-full bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-300"
+                      placeholder="Jane Doe"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="company">Company</label>
+                    <input
+                      id="company"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleChange}
+                      className="w-full h-14 px-6 rounded-full bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-300"
+                      placeholder="Organization Name"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="email">Email</label>
+                    <input
+                      id="email"
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full h-14 px-6 rounded-full bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-300"
+                      placeholder="jane@organization.com"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="mobile">Mobile</label>
+                    <input
+                      id="mobile"
+                      type="tel"
+                      name="mobile"
+                      value={formData.mobile}
+                      onChange={handleChange}
+                      required
+                      className="w-full h-14 px-6 rounded-full bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-300"
+                      placeholder="+1 (555) 000-0000"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="topic">Topic of Interest</label>
+                  <select
+                    id="topic"
+                    name="topic"
+                    value={formData.topic}
+                    onChange={handleChange}
+                    required
+                    className="w-full h-14 px-6 rounded-full bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all appearance-none"
+                  >
+                    <option value="">Select a category</option>
+                    <option value="strategy">Strategy / Innovation</option>
+                    <option value="platforms">Platforms / Engineering</option>
+                    <option value="ai">AI & Automation</option>
+                    <option value="careers">Careers / Talent</option>
+                    <option value="media">Media / Partnerships</option>
+                  </select>
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="message">How can we help?</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="4"
+                    className="w-full p-6 rounded-[32px] bg-white border border-slate-100 text-sm focus:border-blue-600 focus:outline-none transition-all placeholder:text-slate-300 min-h-[140px]"
+                    placeholder="Briefly describe your goals..."
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label className="text-[10px] font-bold text-slate-400 uppercase tracking-widest ml-4" htmlFor="attachments">Attachments (Max 20MB)</label>
+                  <div className="relative h-24 group">
+                    <input
+                      id="attachments"
+                      type="file"
+                      accept=".pdf,.doc,.docx,.zip,.ppt,.pptx"
+                      onChange={handleFileChange}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                    />
+                    <div className="absolute inset-0 rounded-[24px] border border-dashed border-slate-200 bg-white group-hover:border-blue-600 group-hover:bg-blue-50/30 transition-all flex flex-col items-center justify-center p-4">
+                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-1">
+                        {file ? file.name : "Click to select or drag RFP"}
+                      </p>
+                      {!file && <p className="text-[9px] text-slate-300 italic">PDF, PPTX, ZIP supported</p>}
+                    </div>
+                  </div>
+                </div>
               </div>
-            )}
-            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-              <div>
-                <label className="block text-slate-900 font-medium text-xs sm:text-sm mb-1 sm:mb-1.5">Full name <span className="text-red-500">*</span></label>
-                <input name="name" type="text" required disabled={isSubmitting} value={formData.name} onChange={handleChange} className="w-full rounded-lg sm:rounded-xl border border-slate-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-slate-900 placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright disabled:opacity-70" placeholder="Your name" />
+
+              <div className="pt-8 border-t border-slate-100 space-y-6">
+                <AnimatePresence mode="wait">
+                  {submitStatus.message && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: 'auto' }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className={`p-4 rounded-2xl text-[10px] font-bold uppercase tracking-widest text-center ${submitStatus.type === 'success'
+                          ? 'bg-green-50 text-green-700 border border-green-100'
+                          : 'bg-red-50 text-red-700 border border-red-100'
+                        }`}
+                    >
+                      {submitStatus.message}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full h-14 px-10 rounded-full bg-slate-900 text-white text-[10px] font-bold uppercase tracking-widest hover:bg-red-600 hover:shadow-2xl hover:shadow-red-600/20 transition-all disabled:opacity-50 disabled:cursor-not-allowed group"
+                  >
+                    {isSubmitting ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <span className="w-1 h-1 rounded-full bg-white animate-ping" />
+                        Transmitting...
+                      </span>
+                    ) : (
+                      "Send Message"
+                    )}
+                  </button>
+                  {submitted && submitStatus.type === 'success' && (
+                    <p className="text-[10px] font-bold text-green-600 uppercase tracking-widest flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-green-600 shadow-lg" />
+                      Brief Received
+                    </p>
+                  )}
+                </div>
               </div>
-              <div>
-                <label className="block text-slate-900 font-medium text-xs sm:text-sm mb-1 sm:mb-1.5">Company</label>
-                <input name="company" type="text" disabled={isSubmitting} value={formData.company} onChange={handleChange} className="w-full rounded-lg sm:rounded-xl border border-slate-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-slate-900 placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright disabled:opacity-70" placeholder="Company name" />
-              </div>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
-              <div>
-                <label className="block text-slate-900 font-medium text-xs sm:text-sm mb-1 sm:mb-1.5">Email <span className="text-red-500">*</span></label>
-                <input name="email" type="email" required disabled={isSubmitting} value={formData.email} onChange={handleChange} className="w-full rounded-lg sm:rounded-xl border border-slate-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-slate-900 placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright disabled:opacity-70" placeholder="you@company.com" />
-              </div>
-              <div>
-                <label className="block text-slate-900 font-medium text-xs sm:text-sm mb-1 sm:mb-1.5">Mobile number <span className="text-red-500">*</span></label>
-                <input name="mobile" type="tel" required disabled={isSubmitting} value={formData.mobile} onChange={handleChange} className="w-full rounded-lg sm:rounded-xl border border-slate-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-slate-900 placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright disabled:opacity-70" placeholder="+1 234 567 8900" />
-              </div>
-            </div>
-            <div>
-              <label className="block text-slate-900 font-medium text-xs sm:text-sm mb-1 sm:mb-1.5">Topic <span className="text-red-500">*</span></label>
-              <select name="topic" required disabled={isSubmitting} value={formData.topic} onChange={handleChange} className="w-full rounded-lg sm:rounded-xl border border-slate-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright appearance-none bg-[length:1.25rem] bg-[right_0.5rem_center] bg-no-repeat pr-10 disabled:opacity-70" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2364748b'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")` }}>
-                {TOPIC_OPTIONS.map((opt) => (
-                  <option key={opt.value || 'select'} value={opt.value}>{opt.label}</option>
-                ))}
-              </select>
-            </div>
-            <div>
-              <label className="block text-slate-900 font-medium text-xs sm:text-sm mb-1 sm:mb-1.5">How can we help?</label>
-              <textarea name="message" rows={4} disabled={isSubmitting} value={formData.message} onChange={handleChange} className="w-full rounded-lg sm:rounded-xl border border-slate-300 bg-white px-3 sm:px-4 py-2 sm:py-2.5 text-slate-900 placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-nak-bright focus:ring-1 focus:ring-nak-bright resize-none disabled:opacity-70" placeholder="Tell us how we can help you..." />
-            </div>
-            <div>
-              <label className="block text-slate-900 font-medium text-xs sm:text-sm mb-1 sm:mb-1.5">Supporting file (PDF, DOCX, ZIP, PPTX; max 10MB)</label>
-              <input name="file" type="file" accept=".pdf,.doc,.docx,.zip,.ppt,.pptx" onChange={handleFileChange} disabled={isSubmitting} className="w-full rounded-lg sm:rounded-xl border border-dashed border-slate-300 bg-white px-3 sm:px-4 py-2 text-xs text-slate-600 file:mr-3 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-nak-bright/10 file:text-nak-deep hover:file:bg-nak-bright/20 disabled:opacity-70" />
-            </div>
-            <div className="flex flex-wrap items-center gap-3 pt-1">
-              <button type="submit" disabled={isSubmitting} className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-lg sm:rounded-xl bg-nak-deep hover:bg-nak-bright text-white text-xs sm:text-sm font-semibold shadow-lg shadow-nak-deep/30 hover:shadow-nak-bright/30 transition-all duration-300 disabled:opacity-70">
-                {isSubmitting ? 'Sending…' : 'Send message'}
-              </button>
-              {submitted && submitStatus.type === 'success' && (
-                <span className="text-xs font-semibold text-green-600">Thanks! We&apos;ll be in touch soon.</span>
-              )}
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
+
+export default ContactFormSection;
