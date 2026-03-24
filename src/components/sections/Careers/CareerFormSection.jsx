@@ -574,7 +574,7 @@ const ApplicationFormSection = () => {
                     htmlFor="resume-file"
                     className="mb-2 block text-sm font-medium text-slate-700"
                   >
-                    Resume / Portfolio (PDF, DOC, DOCX)
+                    Resume / Portfolio (*Only .pdf format allowed)
                   </label>
                   <input
                     id="resume-file"
