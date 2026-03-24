@@ -11,7 +11,7 @@ export default function Career() {
       <CareerFormSection />
       <CareerCulture />
       <CareerBenefits />
-      <CareerOpenRoles />
+      {/* <CareerOpenRoles /> */}
       <CareerProcess />
     </>
   )
