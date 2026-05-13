@@ -188,7 +188,7 @@ export default function Footer() {
             </div>
             <div className="min-w-0">
               <p className="text-slate-400 text-[10px] sm:text-xs font-medium uppercase tracking-wider">Phone</p>
-              <a href="tel:+17133203582" className="text-white text-xs sm:text-sm font-semibold hover:text-nak-bright transition-colors">+1 7133203582</a>
+              <a href="tel:+19802438936" className="text-white text-xs sm:text-sm font-semibold hover:text-nak-bright transition-colors">+1 9802438936</a>
             </div>
           </div>
         </div>
